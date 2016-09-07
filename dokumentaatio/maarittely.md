@@ -11,8 +11,10 @@ Tässä työssä keskitytään tilanteeseen, jossa kilpaileva pelaaja on jo löy
 Kutsutaan näitä hahmoja jahdattavaksi (tavoite-esineen löytänyt hahmo) ja jahtaajaksi (esinettä itselleen taistelemalla tavoitteleva hahmo).Tarkastellaan jahtaajan optimaalista strategiaa tässä tilanteessa. Jahtaajan on tärkeää saada jahdattava kiinni mahdollisimman aikaisessa vaiheessa tämän pakomatkaa, jotta esineen saaminen itselle on mahdollisimman todennäköistä. Työn tavoitteena onkin löytää tässä tilanteessa paras reitti jahtaajalle.
 
 ## Toteutus
-### Ohjelman saamat syötteet
-taulukko
+### Ohjelman syötteet ja tulosteet
+Ohjelma saa syötteenään kaksiulotteisen taulukon, jonka arvot edustavat kuljettavia ja läpikulkemattomia ruutuja, joista pelialue muodostuu. Lisäksi ohjelma saa jahtaajan ja jahdattavan koordinaatit pelialueella.
+
+Laskennan päätteeksi algoritmi tulostaa jahtaajan koordinaatit kullakin vuorolla hänen liikkuessaan optimaalista jahtausreittiä.
 
 ### Algoritmit ja niiden aikavaativuudet
 A*, heuristiikat, muuta?
