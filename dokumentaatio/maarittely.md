@@ -17,4 +17,4 @@ Ohjelma saa syötteenään kaksiulotteisen taulukon, jonka arvot edustavat kulje
 Laskennan päätteeksi algoritmi tulostaa jahtaajan koordinaatit kullakin vuorolla hänen liikkuessaan optimaalista jahtausreittiä.
 
 ### Algoritmit ja niiden aikavaativuudet
-A*, heuristiikat, muuta?
+Liikkuvan maalin luo navigointi vaatii joitakin muutoksia tavanomaisiin reitinhakualgoritmeihin. 
