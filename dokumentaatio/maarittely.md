@@ -46,6 +46,9 @@ BFS-hakuun tämä on helppoa toteuttaa ainoastaan muuttamalla tarkastusta, jolla
 IDS-hakuun voidaan maalisolmun vaihtuminen toteuttaa vastaavalla tavalla käyttämällä maalisolmuna maksimihakusyvyyden osoittamaa solmua. IDA* -haussa voidaan toimia vastaavasti kun myös heuristiikkafunktion arvoja laskiessa otetaan huomioon maalin siirtyminen.
 
 
+## Lähteet
 [1] Russell S, Norbig P: Artificial Intelligence: A Modern Approach
+
 [2] Alan Mackworth, University of British Colubia CS 322 -kurssin luentokalvot http://www.cs.ubc.ca/~mack/CS322/lectures/2-Search6.pdf
+
 [3] Korf, R: Dept-First Iterative Deepening: An Optimal Admissible Tree Search. Luettavissa internetissä osoitteessa https://cse.sc.edu/~mgv/csce580f09/gradPres/korf_IDAStar_1985.pdf
