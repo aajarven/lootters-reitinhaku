@@ -36,12 +36,9 @@ public class LuolaLukija {
         Scanner lukija = null;
         lukija = new Scanner(new File(tiedostonimi));
 
-        
         boolean[][] luola = alustaLuolataulukko(lukija);
         taytaLuola(luola, lukija);
-        
-        
-        
+
         return luola;
         
     }
