@@ -17,9 +17,6 @@ import java.util.logging.Logger;
  * @author anni
  */
 public class LuolaLukija {
-
-    public LuolaLukija() {
-    }
     
     public static boolean[][] lueLuola(String tiedostonimi) throws IOException{
         /**
@@ -37,13 +34,8 @@ public class LuolaLukija {
          */
         
         Scanner lukija = null;
-        
-        try {
-            lukija = new Scanner(new File(tiedostonimi));
-            
-        } catch (FileNotFoundException ex) {
-            throw new IOException("Tiedostoa "+tiedostonimi+" ei löytynyt.");
-        }
+        lukija = new Scanner(new File(tiedostonimi));
+
         
         boolean[][] luola = alustaLuolataulukko(lukija);
         taytaLuola(luola, lukija);
@@ -81,13 +73,9 @@ public class LuolaLukija {
                         luola[riviNro][i] = true;
                     }
                 } catch (NumberFormatException e) {
-                    System.out.println("Luolatiedoston rivi '" + rivi
+                    System.err.println("Luolatiedoston rivi '" + rivi
                             + "' sisälsi arvon jota ei voinut parsia "
                             + "kokonaisluvuksi.");
-                    throw(e);
-                } catch (ArrayIndexOutOfBoundsException e){
-                    System.out.println("Luolatiedoston ivillä "+ rivi + " oli "
-                            + "liikaa alkioita");
                     throw(e);
                 }
             }
@@ -117,7 +105,7 @@ public class LuolaLukija {
             rivit = Integer.parseInt(luvut[0]);
             sarakkeet = Integer.parseInt(luvut[1]);
         } catch (NumberFormatException e) {
-            System.out.println("Luolatiedoston ensimmäisen rivin tulee "
+            System.err.println("Luolatiedoston ensimmäisen rivin tulee "
                     + "sisältää kaksi välilyönneillä erotettua lukua, joista "
                     + "ensimmäinen kertoo luolataulukon rivien määrän ja "
                     + "toinen sarakkeiden. Esimerkki luolatiedoston sisällöstä:"
