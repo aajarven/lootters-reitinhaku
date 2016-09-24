@@ -1,4 +1,4 @@
-# Viikkoraportti 1 (5 h)
+# Viikkoraportti 1 (8 h)
 ## Viikon aikaansaannokset
 * Netbeansin asennus uudellekin Ubuntulle
 * How to maven & pit -ohjeiden lukemista
@@ -6,6 +6,7 @@
 * Luolan lukeminen tiedostosta
 * Testit luolalukijalle
 * Miksi pit-raportin mukaan 0% kattavuus -hakuammuntaa
+* Testikattavuus oikeasti hyväksi
 
 ## Ohjelman edistyminen
 * Luolan lukeminen tiedostosta boolean-arrayksi (ruutu käveltävissä/ei käveltävissä) toiminee, testit eivät vielä kattavat
