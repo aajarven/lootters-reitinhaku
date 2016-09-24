@@ -38,14 +38,10 @@
                 <configuration>
                     <targetClasses>
                         <param>fi.antonbury.reitinhaku.utils.*</param>
-                    </targetClasses>
-                    <targetTests>
-                        <param>fi.antonbury.reitinhaku.utils.*</param>
-                    </targetTests>
-                    <targetClasses>
                         <param>fi.antonbury.reitinhaku.haku.*</param>
                     </targetClasses>
                     <targetTests>
+                        <param>fi.antonbury.reitinhaku.utils.*</param>
                         <param>fi.antonbury.reitinhaku.haku.*</param>
                     </targetTests>
                 </configuration>
