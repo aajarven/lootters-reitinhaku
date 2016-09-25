@@ -1,14 +1,15 @@
-# Viikkoraportti 3 (5 h)
+# Viikkoraportti 3 (6 h)
 ## Ohjelman edistyminen
 * Node-luokka 
-* Testikattavuus hyväksi
+* NodeGeneraattori-luokka (luo boolean-arraysta nodet joilla on naapurit asetettuna)
+* Testikattavuus hyväksi kummallakin
 
 ## Mitä opin
 * Jouduin ajattelemaan noden toteutusta
 
 ## Mikä oli vaikeaa tai jäi epäselväksi
-* Saada aikaan. Viikko oli kiireinen ja nyt viikonloppuna nousi kuume. Toivottavasti saan huomenna vielä aikaan.
+* Saada aikaan. Viikko oli kiireinen ja viikonloppuna olin kipeänä. Toivoin vähän saavani jo A*-haun toteutettua, mutta se jäi nyt ikävästi ensiviikolle.
 
 ## Mitä seuraavaksi
-* Nodejen luominen annetun kartan perusteella
 * Input jahtaajan, jahdattavan ja maalin sijainneille alussa
+* A*
