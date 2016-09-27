@@ -110,13 +110,13 @@ public class Node {
     }
 
     /**
-     * Heuristiikkafunktio
+     * Heuristiikkafunktio (manhattan-etäisyys)
      *
      * @param maali
      * @return
      */
     private double h(Node maali) {
-        return Math.sqrt(Math.pow(x - maali.getX(), 2.0) + Math.pow(y - maali.getY(), 2.0));
+        return Math.abs(x - maali.getX()) + Math.abs(y - maali.getY());
     }
 
     public ArrayList<Node> getNaapurit() {

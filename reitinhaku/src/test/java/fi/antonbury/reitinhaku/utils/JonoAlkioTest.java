@@ -80,12 +80,12 @@ public class JonoAlkioTest {
         
         JonoAlkio ekaAlkio = new JonoAlkio(alku);
         assertEquals("Alkion kustannuksen palauttaminen toimi väärin kun noden"
-                + " g=0", 14.142, ekaAlkio.kustannus(maali), 0.001);
+                + " g=0", 20, ekaAlkio.kustannus(maali), 0.001);
         
         toinen.yritaAsettajaaEdeltaja(alku);
         JonoAlkio tokaAlkio = new JonoAlkio(toinen);
         assertEquals("Alkion kustannuksen palauttaminen toimi väärin kun noden "
-                + "g != 0", 14.454, tokaAlkio.kustannus(maali), 0.001);
+                + "g != 0", 20, tokaAlkio.kustannus(maali), 0.001);
     }
     
 }

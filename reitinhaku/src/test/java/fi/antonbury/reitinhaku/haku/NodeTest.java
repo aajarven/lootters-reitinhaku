@@ -106,9 +106,10 @@ public class NodeTest {
         Node edeltaja = new Node(3, 6);
         edeltaja.nollaaG();
         n.yritaAsettajaaEdeltaja(edeltaja);
+        System.out.println(n.getG());
         Node n2 = new Node(4, 6);
         n2.yritaAsettajaaEdeltaja(n);
-        assertEquals(9.211, n2.f(maali), 0.001);
+        assertEquals(12, n2.f(maali), 0.001);
     }
     
 }
