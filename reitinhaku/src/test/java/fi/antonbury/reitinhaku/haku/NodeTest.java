@@ -58,7 +58,8 @@ public class NodeTest {
     public void testSetEdeltaja() {
         assertTrue("Uuden noden edeltäjän pitäisi olla null", n.getEdeltaja() == null);
         Node edeltaja = new Node(6, 3);
-        n.setEdeltaja(edeltaja);
+        edeltaja.nollaaG();
+        n.yritaAsettajaaEdeltaja(edeltaja);
         assertTrue("Edeltäjän asettaminen toimii väärin", n.getEdeltaja() == edeltaja);
     }
 
@@ -84,11 +85,14 @@ public class NodeTest {
      */
     @Test
     public void testGetG() {
-        assertTrue("Uudelle nodelle kutsuttaessa getG-metodin pitäisi palauttaa 0", n.getG()==0);
-        n.setEdeltaja(new Node(3, 6));
+        assertEquals("Uudelle nodelle kutsuttaessa getG-metodin pitäisi palauttaa "
+                + "suurin sallittu double", Double.MAX_VALUE, n.getG(), 0.000001);
+        Node edeltaja = new Node(3, 6);
+        edeltaja.nollaaG();
+        n.yritaAsettajaaEdeltaja(edeltaja);
         assertTrue("Kun nodella on yksi edeltäjä, getG-metodin pitäisi palauttaa 1", n.getG()==1);
         Node n2 = new Node(4, 6);
-        n2.setEdeltaja(n);
+        n2.yritaAsettajaaEdeltaja(n);
         assertTrue("Kun nodella on yksi edeltäjä, jolla on edletäjä, getG-metodin"
                 + " pitäisi palauttaa 2", n2.getG()==2);
     }
@@ -99,10 +103,12 @@ public class NodeTest {
     @Test
     public void testF() {
         Node maali = new Node(10, 10);
-        n.setEdeltaja(new Node(3, 6));
+        Node edeltaja = new Node(3, 6);
+        edeltaja.nollaaG();
+        n.yritaAsettajaaEdeltaja(edeltaja);
         Node n2 = new Node(4, 6);
-        n2.setEdeltaja(n);
-        assertEquals(n2.f(maali), 9.211, 0.001);
+        n2.yritaAsettajaaEdeltaja(n);
+        assertEquals(9.211, n2.f(maali), 0.001);
     }
     
 }
