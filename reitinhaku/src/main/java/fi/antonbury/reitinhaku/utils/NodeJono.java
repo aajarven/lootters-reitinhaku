@@ -112,6 +112,10 @@ public class NodeJono {
         }
     }
     
+    /**
+     * Kertoo, onko jono tyhjä
+     * @return true, jos jono on tyhjä, muuten false
+     */
     public boolean onTyhja(){
         return ensimmainen == null;
     }
