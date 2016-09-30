@@ -131,6 +131,18 @@ public class NodeJonoTest {
         jono.poimiNode();
         assertTrue("Jos jonoon lisätään ainoastaan sama Node monesti, pitäisi "
                 + "jonon olla yhden poiminnan jälkeen tyhjä.", jono.onTyhja());
+        
+        Node n2 = new Node(2, 0);
+        n2.nollaaG();
+        jono.lisaaNode(n2);
+        jono.lisaaNode(n1);
+        jono.lisaaNode(n2);
+        jono.lisaaNode(n2);
+        jono.lisaaNode(n1);
+        jono.poimiNode();
+        jono.poimiNode();
+        assertTrue("Jos jonoon lisätään ainoastaan kahta alkiota monesti, pitäisi "
+                + "jonon olla kahden poiminnan jälkeen tyhjä.", jono.onTyhja());
     }
     
 }

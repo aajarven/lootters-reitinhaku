@@ -43,7 +43,7 @@ public class NodeJono {
         if (ensimmainen == null){
             ensimmainen = new JonoAlkio(lisattava);
             
-        } else if (ensimmainen.kustannus(maali) > kustannus){
+        } else if (ensimmainen.kustannus(maali) >= kustannus){
             uusi.setSeuraaja(ensimmainen);
             ensimmainen = uusi;
             
@@ -53,11 +53,6 @@ public class NodeJono {
             JonoAlkio edellinen = ensimmainen;
             
             while(edellinen.getSeuraaja() != null){
-                
-                if (edellinen.getNode() == lisattava){
-                    poista(uusi, lisattava);
-                    return;
-                }
                 
                 JonoAlkio seuraava = edellinen.getSeuraaja();
                 
