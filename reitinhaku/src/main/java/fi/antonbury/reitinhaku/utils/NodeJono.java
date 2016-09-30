@@ -115,7 +115,11 @@ public class NodeJono {
         return ensimmainen == null;
     }
     
-    
+    // TODO ethän sinä edes käytä tätä mihinkään
+    /**
+     * Palauttaa jonon tämänhetkisen pituuden.
+     * @return jonon pituus
+     */
     public int pituus(){
         if (ensimmainen == null){
             return 0;
