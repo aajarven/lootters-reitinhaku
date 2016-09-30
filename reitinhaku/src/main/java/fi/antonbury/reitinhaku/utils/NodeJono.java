@@ -114,4 +114,20 @@ public class NodeJono {
     public boolean onTyhja(){
         return ensimmainen == null;
     }
+    
+    
+    public int pituus(){
+        if (ensimmainen == null){
+            return 0;
+        }
+        
+        int pituus = 1;
+        JonoAlkio edellinen = ensimmainen;
+        while (edellinen.getSeuraaja() != null){
+            edellinen = edellinen.getSeuraaja();
+            pituus++;
+        }
+        
+        return pituus;
+    }
 }

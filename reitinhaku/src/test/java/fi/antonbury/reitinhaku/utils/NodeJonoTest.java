@@ -145,4 +145,28 @@ public class NodeJonoTest {
                 + "jonon olla kahden poiminnan jälkeen tyhjä.", jono.onTyhja());
     }
     
+    @Test
+    public void testPituus(){
+        Node n1 = new Node(1, 0);
+        Node n2 = new Node(3, 6);
+        Node n3 = new Node(5, 2);
+        
+        assertEquals("Tyhjän jonon pituuden pitäisi olla 0", 0, jono.pituus());
+        jono.lisaaNode(n1);
+        assertEquals("Yhden noden lisäämisen jälkeen jonon pituuden pitäisi olla"
+                + " 1", 1, jono.pituus());
+        jono.lisaaNode(n1);
+        assertEquals("Kahden saman Node-olion lisäämisen jälkeen jonon pituuden "
+                + "pitäisi olla 1", 1, jono.pituus());
+        
+        jono.lisaaNode(n2);
+        assertEquals("Kahden uniikin Noden lisäämisen jälkeen jonon pituuden "
+                + "pitäisi olla 2", 2, jono.pituus());
+        
+        jono.lisaaNode(n2);
+        jono.lisaaNode(n3);
+        assertEquals("Kolmen uniikin Noden lisäämisen jälkeen jonon pituuden "
+                + "pitäisi olla 3", 3, jono.pituus());
+    }
+    
 }
