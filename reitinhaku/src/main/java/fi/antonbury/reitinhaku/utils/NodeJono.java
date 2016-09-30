@@ -62,7 +62,7 @@ public class NodeJono {
                 JonoAlkio seuraava = edellinen.getSeuraaja();
                 
                 // paikka löytyi
-                if (seuraava.kustannus(maali) > kustannus){
+                if (seuraava.kustannus(maali) >= kustannus){
                     
                     edellinen.setSeuraaja(uusi);
                     uusi.setSeuraaja(seuraava);
