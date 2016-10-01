@@ -27,7 +27,7 @@ public class Node {
     /**
      * Kustannus tähän nodeen pääsemiseksi
      */
-    private double g;
+    private double kustannusNodeenAsti;
 
     /**
      * Solmun naapurit
@@ -50,7 +50,7 @@ public class Node {
     public Node(int x, int y) {
         this.x = x;
         this.y = y;
-        this.g = Double.MAX_VALUE;
+        this.kustannusNodeenAsti = Double.MAX_VALUE;
         this.naapurit = new ArrayList<Node>();
         this.edeltaja = null;
     }
@@ -72,9 +72,9 @@ public class Node {
      * @return true, jos edeltäjä vaihtui, muuten false
      */
     public boolean yritaAsettajaaEdeltaja(Node edeltaja) {
-        if (edeltaja.getG() + 1 < this.g) {
+        if (edeltaja.getKustannusNodeenAsti() + 1 < this.kustannusNodeenAsti) {
             this.edeltaja = edeltaja;
-            g = edeltaja.getG() + 1;
+            kustannusNodeenAsti = edeltaja.getKustannusNodeenAsti() + 1;
             return true;
         } else {
             return false;
@@ -93,8 +93,8 @@ public class Node {
         return y;
     }
 
-    public double getG() {
-        return g;
+    public double getKustannusNodeenAsti() {
+        return kustannusNodeenAsti;
     }
 
     /**
@@ -105,8 +105,8 @@ public class Node {
      * @param maali maalisolmu
      * @return kustannus
      */
-    public double f(Node maali) {
-        return g + h(maali);
+    public double kokonaiskustannus(Node maali) {
+        return kustannusNodeenAsti + heuristiikka(maali);
     }
 
     /**
@@ -115,7 +115,7 @@ public class Node {
      * @param maali
      * @return
      */
-    private double h(Node maali) {
+    private double heuristiikka(Node maali) {
         return Math.abs(x - maali.getX()) + Math.abs(y - maali.getY());
     }
 
@@ -126,7 +126,7 @@ public class Node {
     /**
      * Asettaa noden g-arvon nollaksi, jolloin node on lähtönode.
      */
-    public void nollaaG(){
-        this.g = 0;
+    public void nollaaKustannusNodeenAsti(){
+        this.kustannusNodeenAsti = 0;
     }
 }

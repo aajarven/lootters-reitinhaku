@@ -26,7 +26,7 @@ public class Main {
             
         }
         Node[][] luola = NodeGeneraattori.generoiNodet(luolaboolean);
-        luola[0][0].nollaaG();
+        luola[0][0].nollaaKustannusNodeenAsti();
         Node[] polku = AStar.search(luola[0][0], luola[9][9]);
         System.out.println(polku.length);
     }

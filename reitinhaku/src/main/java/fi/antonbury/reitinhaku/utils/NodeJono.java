@@ -37,7 +37,7 @@ public class NodeJono {
      * @param lisattava Node, joka jonoon lisätään
      */
     public void lisaaNode(Node lisattava){
-        double kustannus = lisattava.f(maali);
+        double kustannus = lisattava.kokonaiskustannus(maali);
         JonoAlkio uusi = new JonoAlkio(lisattava);
         
         if (ensimmainen == null){

@@ -64,7 +64,7 @@ public class NodeJonoTest {
         Node n6 = new Node(0, 3);
         Node n7 = new Node(0, 4);
         
-        n1.nollaaG();
+        n1.nollaaKustannusNodeenAsti();
         n2.yritaAsettajaaEdeltaja(n1);
         n3.yritaAsettajaaEdeltaja(n2);
         n4.yritaAsettajaaEdeltaja(n3);
@@ -86,7 +86,7 @@ public class NodeJonoTest {
             Node seuraava = jono.poimiNode();
             assertTrue("Kun jonosta poimitaan alkioita, pitäisi seuraavan alkion "
                     + "f-metodin aina palauttaa vähintään yhtä suuri luku "
-                    + "kuin edellisen", seuraava.f(maali) >= edellinen.f(maali));
+                    + "kuin edellisen", seuraava.kokonaiskustannus(maali) >= edellinen.kokonaiskustannus(maali));
             edellinen = seuraava;
             poimitut++;
         }
@@ -111,7 +111,7 @@ public class NodeJonoTest {
     public void testEnsimmaisenVaihtaminenOnnistuu(){
         Node n1 = new Node(1, 0);
         Node n2 = new Node(0, 1);
-        n1.nollaaG();
+        n1.nollaaKustannusNodeenAsti();
         
         jono.lisaaNode(n2);
         jono.lisaaNode(n1);
@@ -133,7 +133,7 @@ public class NodeJonoTest {
                 + "jonon olla yhden poiminnan jälkeen tyhjä.", jono.onTyhja());
         
         Node n2 = new Node(2, 0);
-        n2.nollaaG();
+        n2.nollaaKustannusNodeenAsti();
         jono.lisaaNode(n2);
         jono.lisaaNode(n1);
         jono.lisaaNode(n2);

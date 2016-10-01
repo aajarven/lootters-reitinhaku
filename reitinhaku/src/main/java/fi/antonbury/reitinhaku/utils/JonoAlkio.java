@@ -34,7 +34,7 @@ public class JonoAlkio {
     }
     
     public double kustannus(Node maali){
-        return node.f(maali);
+        return node.kokonaiskustannus(maali);
     }
     
     

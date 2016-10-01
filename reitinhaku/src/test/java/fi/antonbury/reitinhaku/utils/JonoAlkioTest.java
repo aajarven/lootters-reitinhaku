@@ -75,7 +75,7 @@ public class JonoAlkioTest {
         Node toinen = new Node(0, 1);
         Node maali = new Node(10, 10);
         
-        alku.nollaaG();
+        alku.nollaaKustannusNodeenAsti();
         alku.lisaaNaapuri(toinen);
         
         JonoAlkio ekaAlkio = new JonoAlkio(alku);

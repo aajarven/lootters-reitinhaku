@@ -58,7 +58,7 @@ public class NodeTest {
     public void testSetEdeltaja() {
         assertTrue("Uuden noden edeltäjän pitäisi olla null", n.getEdeltaja() == null);
         Node edeltaja = new Node(6, 3);
-        edeltaja.nollaaG();
+        edeltaja.nollaaKustannusNodeenAsti();
         n.yritaAsettajaaEdeltaja(edeltaja);
         assertTrue("Edeltäjän asettaminen toimii väärin", n.getEdeltaja() == edeltaja);
     }
@@ -85,15 +85,15 @@ public class NodeTest {
     @Test
     public void testGetG() {
         assertEquals("Uudelle nodelle kutsuttaessa getG-metodin pitäisi palauttaa "
-                + "suurin sallittu double", Double.MAX_VALUE, n.getG(), 0.000001);
+                + "suurin sallittu double", Double.MAX_VALUE, n.getKustannusNodeenAsti(), 0.000001);
         Node edeltaja = new Node(3, 6);
-        edeltaja.nollaaG();
+        edeltaja.nollaaKustannusNodeenAsti();
         n.yritaAsettajaaEdeltaja(edeltaja);
-        assertTrue("Kun nodella on yksi edeltäjä, getG-metodin pitäisi palauttaa 1", n.getG() == 1);
+        assertTrue("Kun nodella on yksi edeltäjä, getG-metodin pitäisi palauttaa 1", n.getKustannusNodeenAsti() == 1);
         Node n2 = new Node(4, 6);
         n2.yritaAsettajaaEdeltaja(n);
         assertTrue("Kun nodella on yksi edeltäjä, jolla on edletäjä, getG-metodin"
-                + " pitäisi palauttaa 2", n2.getG() == 2);
+                + " pitäisi palauttaa 2", n2.getKustannusNodeenAsti() == 2);
     }
 
     /**
@@ -103,12 +103,12 @@ public class NodeTest {
     public void testF() {
         Node maali = new Node(10, 10);
         Node edeltaja = new Node(3, 6);
-        edeltaja.nollaaG();
+        edeltaja.nollaaKustannusNodeenAsti();
         n.yritaAsettajaaEdeltaja(edeltaja);
-        System.out.println(n.getG());
+        System.out.println(n.getKustannusNodeenAsti());
         Node n2 = new Node(4, 6);
         n2.yritaAsettajaaEdeltaja(n);
-        assertEquals(12, n2.f(maali), 0.001);
+        assertEquals(12, n2.kokonaiskustannus(maali), 0.001);
     }
 
     /**
@@ -117,7 +117,7 @@ public class NodeTest {
     @Test
     public void testYritaAsettajaaEdeltaja() {
         Node alku = new Node(0, 0);
-        alku.nollaaG();
+        alku.nollaaKustannusNodeenAsti();
         Node va = new Node(0, 1); // vasen ala
         Node oy = new Node(1, 0); // oikea ylä
         Node oa = new Node(1, 1); // oikea ala
@@ -135,7 +135,7 @@ public class NodeTest {
                 + " huonompaan", oy.yritaAsettajaaEdeltaja(oa));
         
         alku = new Node(0, 0);
-        alku.nollaaG();
+        alku.nollaaKustannusNodeenAsti();
         va = new Node(0, 1); // vasen ala
         oy = new Node(1, 0); // oikea ylä
         oa = new Node(1, 1); // oikea ala
