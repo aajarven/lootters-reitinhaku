@@ -36,13 +36,6 @@ public class AStarTest {
     
     @Before
     public void setUp() {
-        boolean[][] luolaboolean = null;
-        try {
-            luolaboolean = LuolaLukija.lueLuola("resources/testiluolat/hakuluola1.txt");
-        } catch (IOException ex) {
-            fail("Odottamaton poikkeus:\n" + ex.getMessage());
-        }
-        luola = NodeGeneraattori.generoiNodet(luolaboolean);
     }
     
     @After
@@ -54,9 +47,37 @@ public class AStarTest {
      */
     @Test
     public void testSearch() {
+        boolean[][] luolaboolean = null;
+        try {
+            luolaboolean = LuolaLukija.lueLuola("resources/testiluolat/hakuluola1.txt");
+        } catch (IOException ex) {
+            fail("Odottamaton poikkeus:\n" + ex.getMessage());
+        }
+        luola = NodeGeneraattori.generoiNodet(luolaboolean);
+        
+        luola[0][0].nollaaG();
         Node[] polku = AStar.search(luola[0][0], luola[9][9]);
         
         assertEquals("Polun pituus on väärä", 19, polku.length);
+        assertEquals("Polun ensimmäisen alkion pitäisi olla lähtöpaikka", luola[0][0], polku[0]);
+        assertEquals("Polun viimeisen alkion pitäisi olla maalisolmu", luola[9][9], polku[polku.length-1]);
+        assertEquals("Polun keskellä oli väärä alkio", luola[2][4], polku[6]);
+    }
+    
+    @Test
+    public void testEiPolkua(){
+        boolean[][] luolaboolean = null;
+        try {
+            luolaboolean = LuolaLukija.lueLuola("resources/testiluolat/eipolkua.txt");
+        } catch (IOException ex) {
+            fail("Odottamaton poikkeus:\n" + ex.getMessage());
+        }
+        luola = NodeGeneraattori.generoiNodet(luolaboolean);
+        
+        luola[0][0].nollaaG();
+        Node[] polku = AStar.search(luola[0][0], luola[9][9]);
+        
+        assertEquals("Kun maalisolmua on mahdotonta saavuttaa, pitäisi palauttaa null", null, polku);
     }
     
 }
