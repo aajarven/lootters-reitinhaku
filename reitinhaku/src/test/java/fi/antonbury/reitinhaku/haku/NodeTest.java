@@ -117,7 +117,7 @@ public class NodeTest {
                 + "ottamaan alkunode edeltäjäkseen",
                 oy.yritaAsettajaaEdeltaja(alku));
         assertTrue("Noden, jolla ei vielä ole edeltäjää, pitäisi suostua "
-                + "ottamaan node jolla on edeltäjäkseen", 
+                + "ottamaan node, jolla on edeltäjä, edeltäjäkseen", 
                 oa.yritaAsettajaaEdeltaja(va));
         assertFalse("Noden, jolla on jo parempi edeltäjä, ei pitäisi vaihtaa"
                 + " huonompaan", oy.yritaAsettajaaEdeltaja(oa));
