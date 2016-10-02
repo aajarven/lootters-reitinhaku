@@ -4,13 +4,13 @@ Ohjelman kaikkien luokkien toiminta mainia lukuunottamatta on testattu pit-mutaa
 
 ### LuolaLukija
 LuolaLukijan toimivuus testattiin sekä toimivilla että eri tavoin toimimattomilla, joskin pienillä syötteillä. Toimivana luolana käytettiin sisällöltään seuraavanlaista tiedostoa:
-'''
+<pre>
 # kommentti
 2 4
 
 1 0 1 1
 1 1 1 0
-'''
+</pre>
 
 
 ## Testien toistettavuus
