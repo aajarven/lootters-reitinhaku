@@ -1,4 +1,4 @@
-# Viikkoraportti 1 (15 h)
+# Viikkoraportti 1 (16 h)
 ## Viikon aikaansaannokset
 * Oma priorityqueue-toteutus
 * A*-haun eka yritys (ei testejä vielä, en tiedä toimiiko)
