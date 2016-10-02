@@ -7,13 +7,10 @@ package fi.antonbury.reitinhaku.utils;
 
 import fi.antonbury.reitinhaku.haku.Node;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
