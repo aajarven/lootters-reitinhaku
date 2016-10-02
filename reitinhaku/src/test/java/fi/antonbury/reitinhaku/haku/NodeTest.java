@@ -80,10 +80,10 @@ public class NodeTest {
     }
 
     /**
-     * Test of getG method, of class Node.
+     * Test of getKustannusNodeenAsti method, of class Node.
      */
     @Test
-    public void testGetG() {
+    public void testGetKustannusNodeenAsti() {
         assertEquals("Uudelle nodelle kutsuttaessa getG-metodin pitäisi palauttaa "
                 + "suurin sallittu double", Double.MAX_VALUE, n.getKustannusNodeenAsti(), 0.000001);
         Node edeltaja = new Node(3, 6);
@@ -97,10 +97,10 @@ public class NodeTest {
     }
 
     /**
-     * Test of f method, of class Node.
+     * Test of kokonaiskustannus method, of class Node.
      */
     @Test
-    public void testF() {
+    public void testḰokonaiskustannus() {
         Node maali = new Node(10, 10);
         Node edeltaja = new Node(3, 6);
         edeltaja.nollaaKustannusNodeenAsti();
