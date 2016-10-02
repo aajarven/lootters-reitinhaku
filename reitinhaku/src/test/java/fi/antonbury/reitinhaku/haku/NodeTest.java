@@ -52,18 +52,6 @@ public class NodeTest {
     }
 
     /**
-     * Test of setEdeltaja method, of class Node.
-     */
-    @Test
-    public void testSetEdeltaja() {
-        assertTrue("Uuden noden edeltäjän pitäisi olla null", n.getEdeltaja() == null);
-        Node edeltaja = new Node(6, 3);
-        edeltaja.nollaaKustannusNodeenAsti();
-        n.yritaAsettajaaEdeltaja(edeltaja);
-        assertTrue("Edeltäjän asettaminen toimii väärin", n.getEdeltaja() == edeltaja);
-    }
-
-    /**
      * Test of getX method, of class Node.
      */
     @Test
