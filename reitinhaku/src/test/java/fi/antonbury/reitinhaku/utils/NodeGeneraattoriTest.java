@@ -55,12 +55,12 @@ public class NodeGeneraattoriTest {
     
     @org.junit.Test
     public void testNaapurimaarat(){
-        assertEquals("Testiluolan vasemman yläkulman nodella oli väärä määrä naapureita", 1, luola[0][0].getNaapurit().size());
-        assertEquals("Testiluolan vasemman alakulman nodella oli väärä määrä naapureita", 1, luola[6][0].getNaapurit().size());
-        assertEquals("Testiluolan oikean yläkulman nodella oli väärä määrä naapureita", 1, luola[0][3].getNaapurit().size());
-        assertEquals("Nodella, jolla pitäisi olla neljä naapuria, oli väärä määrä naapureita", 4, luola[2][2].getNaapurit().size());
-        assertEquals("Nodella, jolla pitäisi olla kaksi naapuria, oli väärä määrä naapureita", 2, luola[0][2].getNaapurit().size());
-        assertEquals("Nodella, jolla pitäisi olla kolme naapuria, oli väärä määrä naapureita", 3, luola[5][2].getNaapurit().size());
+        assertEquals("Testiluolan vasemman yläkulman nodella oli väärä määrä naapureita", 1, luola[0][0].getNaapurit().length);
+        assertEquals("Testiluolan vasemman alakulman nodella oli väärä määrä naapureita", 1, luola[6][0].getNaapurit().length);
+        assertEquals("Testiluolan oikean yläkulman nodella oli väärä määrä naapureita", 1, luola[0][3].getNaapurit().length);
+        assertEquals("Nodella, jolla pitäisi olla neljä naapuria, oli väärä määrä naapureita", 4, luola[2][2].getNaapurit().length);
+        assertEquals("Nodella, jolla pitäisi olla kaksi naapuria, oli väärä määrä naapureita", 2, luola[0][2].getNaapurit().length);
+        assertEquals("Nodella, jolla pitäisi olla kolme naapuria, oli väärä määrä naapureita", 3, luola[5][2].getNaapurit().length);
     }
     
     @org.junit.Test
@@ -70,6 +70,8 @@ public class NodeGeneraattoriTest {
     
     @org.junit.Test
     public void testNaapuritOikein(){
-        assertEquals("Noden naapurin naapurin pitäisi olla node itse kun naapurilla on vain yksi naapuri", luola[3][0], luola[3][0].getNaapurit().get(0).getNaapurit().get(0));
+        Node naapuri = luola[3][0].getNaapurit()[0];
+        Node naapurinnaapuri = naapuri.getNaapurit()[0];
+        assertEquals("Noden naapurin naapurin pitäisi olla node itse kun naapurilla on vain yksi naapuri", luola[3][0], naapurinnaapuri);
     }
 }

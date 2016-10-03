@@ -5,8 +5,7 @@
  */
 package fi.antonbury.reitinhaku.haku;
 
-import java.util.ArrayList;
-import java.lang.Math;
+import fi.antonbury.reitinhaku.utils.NaapuriLista;
 
 /**
  * Kartan käveltävää ruutua edustava luokka
@@ -33,7 +32,7 @@ public class Node {
     /**
      * Solmun naapurit
      */
-    private ArrayList<Node> naapurit; // TODO toteuta itse (huom näitä on korkeintaan neljä, naapurilista voi siis hyvin olla vakiosti neljän mittainen?
+    private NaapuriLista naapurit;
 
     /**
      * Solmu, josta tähän solmuun on tultu
@@ -52,7 +51,7 @@ public class Node {
         this.x = x;
         this.y = y;
         this.kustannusNodeenAsti = Integer.MAX_VALUE;
-        this.naapurit = new ArrayList<Node>();
+        this.naapurit = new NaapuriLista();
         this.edeltaja = null;
     }
 
@@ -62,7 +61,7 @@ public class Node {
      * @param naapuri uusi naapuri
      */
     public void lisaaNaapuri(Node naapuri) {
-        naapurit.add(naapuri);
+        naapurit.lisaaNaapuri(naapuri);
     }
 
     /**
@@ -120,8 +119,8 @@ public class Node {
         return Math.abs(x - maali.getX()) + Math.abs(y - maali.getY());
     }
 
-    public ArrayList<Node> getNaapurit() {
-        return naapurit;
+    public Node[] getNaapurit() {
+        return naapurit.getNaapurit();
     }
 
     /**

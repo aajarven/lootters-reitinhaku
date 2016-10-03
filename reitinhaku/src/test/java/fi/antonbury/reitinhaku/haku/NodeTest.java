@@ -45,10 +45,10 @@ public class NodeTest {
      */
     @Test
     public void testLisaaNaapuri() {
-        assertTrue("Uudella nodella ei pitäisi olla yhtään naapuria", n.getNaapurit().size() == 0);
+        assertTrue("Uudella nodella ei pitäisi olla yhtään naapuria", n.getNaapurit().length == 0);
         Node naapuri = new Node(4, 3);
         n.lisaaNaapuri(naapuri);
-        assertTrue("Yhden naapurin lisäämisen jälkeen nodella pitäisi olla yksi naapuri", n.getNaapurit().size() == 1);
+        assertTrue("Yhden naapurin lisäämisen jälkeen nodella pitäisi olla yksi naapuri", n.getNaapurit().length == 1);
     }
 
     /**
