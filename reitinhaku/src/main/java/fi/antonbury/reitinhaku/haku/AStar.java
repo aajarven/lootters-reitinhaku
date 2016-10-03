@@ -5,7 +5,7 @@
  */
 package fi.antonbury.reitinhaku.haku;
 
-import fi.antonbury.reitinhaku.utils.NodeJono;
+import fi.antonbury.reitinhaku.utils.Prioriteettijono;
 import java.util.HashSet;
 
 /**
@@ -25,7 +25,7 @@ public class AStar {
      */
     public static Node[] search(Node lahto, Node maali) {
 
-        NodeJono openSet = new NodeJono(maali);
+        Prioriteettijono openSet = new Prioriteettijono(maali);
         HashSet<Node> closedSet = new HashSet<Node>();
 
         openSet.lisaaNode(lahto);
@@ -54,7 +54,7 @@ public class AStar {
      * @param closedSet Set, josta löytyviä naapureita ei lisätä
      * @param lisattava Node, jonka naapurit käsitellään
      */
-    private static void kasitteleNaapurit(NodeJono openSet, HashSet<Node> closedSet, Node lisattava) {
+    private static void kasitteleNaapurit(Prioriteettijono openSet, HashSet<Node> closedSet, Node lisattava) {
         for (Node n : lisattava.getNaapurit()) {
             if (!closedSet.contains(n)) {
                 if (n.yritaAsettajaaEdeltaja(lisattava)){
