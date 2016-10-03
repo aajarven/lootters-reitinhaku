@@ -10,6 +10,7 @@ import java.lang.Math;
 
 /**
  * Kartan käveltävää ruutua edustava luokka
+ *
  * @author Anni Järvenpää
  */
 public class Node {
@@ -122,11 +123,22 @@ public class Node {
     public ArrayList<Node> getNaapurit() {
         return naapurit;
     }
-    
+
     /**
      * Asettaa noden g-arvon nollaksi, jolloin node on lähtönode.
      */
-    public void nollaaKustannusNodeenAsti(){
+    public void nollaaKustannusNodeenAsti() {
         this.kustannusNodeenAsti = 0;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Node) {
+            Node vertailtava = (Node) obj;
+            return (vertailtava.getX() == this.x && vertailtava.getY() == this.y);
+        } else {
+            return false;
+        }
+    }
+
 }

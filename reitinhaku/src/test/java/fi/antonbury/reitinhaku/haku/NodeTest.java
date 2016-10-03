@@ -73,7 +73,7 @@ public class NodeTest {
     @Test
     public void testGetKustannusNodeenAsti() {
         assertEquals("Uudelle nodelle kutsuttaessa getG-metodin pitäisi palauttaa "
-                + "suurin sallittu double", Double.MAX_VALUE, n.getKustannusNodeenAsti(), 0.000001);
+                + "suurin sallittu int", Integer.MAX_VALUE, n.getKustannusNodeenAsti());
         Node edeltaja = new Node(3, 6);
         edeltaja.nollaaKustannusNodeenAsti();
         n.yritaAsettajaaEdeltaja(edeltaja);
