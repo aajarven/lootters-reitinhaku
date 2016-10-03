@@ -27,7 +27,7 @@ public class Node {
     /**
      * Kustannus tähän nodeen pääsemiseksi
      */
-    private double kustannusNodeenAsti;
+    private int kustannusNodeenAsti;
 
     /**
      * Solmun naapurit
@@ -50,7 +50,7 @@ public class Node {
     public Node(int x, int y) {
         this.x = x;
         this.y = y;
-        this.kustannusNodeenAsti = Double.MAX_VALUE;
+        this.kustannusNodeenAsti = Integer.MAX_VALUE;
         this.naapurit = new ArrayList<Node>();
         this.edeltaja = null;
     }
@@ -93,7 +93,7 @@ public class Node {
         return y;
     }
 
-    public double getKustannusNodeenAsti() {
+    public int getKustannusNodeenAsti() {
         return kustannusNodeenAsti;
     }
 
