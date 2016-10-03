@@ -5,6 +5,8 @@
  */
 package fi.antonbury.reitinhaku.haku;
 
+import fi.antonbury.reitinhaku.utils.NodeGeneraattori;
+import fi.antonbury.reitinhaku.utils.PolkuGeneraattori;
 import fi.antonbury.reitinhaku.utils.Prioriteettijono;
 import java.util.HashSet;
 
@@ -33,7 +35,7 @@ public class AStar {
         while (!openSet.onTyhja()) {
             Node kasiteltava = openSet.poimiNode();
             if (kasiteltava == maali){
-                return generoiPolku(maali);
+                return PolkuGeneraattori.generoiPolku(kasiteltava);
             }
             
             closedSet.add(kasiteltava);
@@ -63,41 +65,4 @@ public class AStar {
             }
         }
     }
-    
-    /**
-     * Generoi palautettavan polun taulukkoesityksen
-     * @param maali maalinode, johon polku vie
-     * @return taulukko, jossa on lähdöstä maaliin vievät nodet (päätepisteet mukaanluettuna) ensimmäisestä viimeiseen
-     */
-    private static Node[] generoiPolku(Node maali){
-        int pituus = polunPituus(maali);
-        Node[] polku = new Node[pituus];
-        int indeksi = pituus - 1;
-        
-        Node kasiteltava = maali;
-        while (kasiteltava != null){
-            polku[indeksi] = kasiteltava;
-            kasiteltava = kasiteltava.getEdeltaja();
-            indeksi--;
-        }
-        
-        return polku;
-    }
-    
-    /**
-     * Laskee annettuun maalisolmuun vievän polun pituuden
-     * @param maali maalisolmu
-     * @return maalisolmuun vievän polun pituus
-     */
-    private static int polunPituus(Node maali){
-        int pituus = 1;
-        Node tutkittava = maali;
-        while (tutkittava.getEdeltaja() != null){
-            pituus++;
-            tutkittava = tutkittava.getEdeltaja();
-        }
-        
-        return pituus;
-    }
-
 }
