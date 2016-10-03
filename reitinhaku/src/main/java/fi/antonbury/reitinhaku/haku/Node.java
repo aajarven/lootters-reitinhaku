@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.lang.Math;
 
 /**
- *
+ * Kartan käveltävää ruutua edustava luokka
  * @author Anni Järvenpää
  */
 public class Node {

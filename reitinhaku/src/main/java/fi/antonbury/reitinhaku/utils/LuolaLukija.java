@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Luolan tiedostosta lukemiseen käytettävä luokka
  * @author anni
  */
 public class LuolaLukija {

@@ -8,7 +8,7 @@ package fi.antonbury.reitinhaku.utils;
 import fi.antonbury.reitinhaku.haku.Node;
 
 /**
- *
+ * Node-olioiden generointiin käytettävä luokka
  * @author anni
  */
 public class NodeGeneraattori {

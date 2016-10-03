@@ -8,7 +8,7 @@ package fi.antonbury.reitinhaku.utils;
 import fi.antonbury.reitinhaku.haku.Node;
 
 /**
- *
+ * PriorityQueuen alkio
  * @author anni
  */
 public class JonoAlkio {

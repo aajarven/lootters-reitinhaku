@@ -9,7 +9,7 @@ import fi.antonbury.reitinhaku.utils.NodeJono;
 import java.util.HashSet;
 
 /**
- *
+ * A*-haku
  * @author anni
  */
 public class AStar {
