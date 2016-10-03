@@ -6,6 +6,7 @@
 package fi.antonbury.reitinhaku;
 
 import fi.antonbury.reitinhaku.haku.AStar;
+import fi.antonbury.reitinhaku.haku.Leveyshaku;
 import fi.antonbury.reitinhaku.haku.Node;
 import fi.antonbury.reitinhaku.utils.LuolaLukija;
 import fi.antonbury.reitinhaku.utils.NodeGeneraattori;
@@ -27,7 +28,12 @@ public class Main {
         }
         Node[][] luola = NodeGeneraattori.generoiNodet(luolaboolean);
         luola[0][0].nollaaKustannusNodeenAsti();
-        Node[] polku = AStar.search(luola[0][0], luola[9][9]);
-        System.out.println(polku.length);
+        Node[] maali = AStar.search(luola[0][0], luola[9][9]);
+        
+        luola = NodeGeneraattori.generoiNodet(luolaboolean);
+        luola[6][2].nollaaKustannusNodeenAsti();
+        Node[] polku = Leveyshaku.search(luola[6][2], maali);
+        
+        System.out.println(polku);
     }
 }
