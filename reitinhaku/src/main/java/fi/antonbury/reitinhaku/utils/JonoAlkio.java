@@ -13,7 +13,7 @@ import fi.antonbury.reitinhaku.haku.Node;
  */
 public class JonoAlkio {
     
-    private Node node;
+    Node node;
     private JonoAlkio seuraaja;
 
     public JonoAlkio(Node node) {
@@ -21,21 +21,27 @@ public class JonoAlkio {
         this.seuraaja = null;
     }
 
+    /**
+     * Palauttaa alkion tämänhetkisen seuraajan
+     * @return seuraaja
+     */
     public JonoAlkio getSeuraaja() {
         return seuraaja;
     }
 
+    /**
+     * Asettaa alkiolle uuden seuraajan
+     * @param seuraaja uusi seuraaja
+     */
     public void setSeuraaja(JonoAlkio seuraaja) {
         this.seuraaja = seuraaja;
     }
 
+    /**
+     * Palauttaa alkion edustaman noden
+     * @return alkion edustama node
+     */
     public Node getNode() {
         return node;
     }
-    
-    public double kustannus(Node maali){
-        return node.kokonaiskustannus(maali);
-    }
-    
-    
 }

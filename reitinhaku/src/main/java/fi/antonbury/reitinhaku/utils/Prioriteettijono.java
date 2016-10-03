@@ -15,17 +15,17 @@ import fi.antonbury.reitinhaku.haku.Node;
  * 
  * @author anni
  */
-public class NodeJono {
+public class Prioriteettijono {
     
     private Node maali;
-    private JonoAlkio ensimmainen;
+    private PrioriteettijonoAlkio ensimmainen;
 
     /**
      * Luo uuden tyhjän jonon, jonka järjestystä määritettäessä käytetään
      * annettua maalisolmua.
      * @param maali 
      */
-    public NodeJono(Node maali) {
+    public Prioriteettijono(Node maali) {
         this.maali = maali;
         this.ensimmainen = null;
     }
@@ -38,10 +38,10 @@ public class NodeJono {
      */
     public void lisaaNode(Node lisattava){
         double kustannus = lisattava.kokonaiskustannus(maali);
-        JonoAlkio uusi = new JonoAlkio(lisattava);
+        PrioriteettijonoAlkio uusi = new PrioriteettijonoAlkio(lisattava);
         
         if (ensimmainen == null){
-            ensimmainen = new JonoAlkio(lisattava);
+            ensimmainen = new PrioriteettijonoAlkio(lisattava);
             
         } else if (ensimmainen.kustannus(maali) >= kustannus){
             uusi.setSeuraaja(ensimmainen);
@@ -50,11 +50,11 @@ public class NodeJono {
             poista(ensimmainen, lisattava);
             
         } else {
-            JonoAlkio edellinen = ensimmainen;
+            PrioriteettijonoAlkio edellinen = ensimmainen;
             
             while(edellinen.getSeuraaja() != null){
                 
-                JonoAlkio seuraava = edellinen.getSeuraaja();
+                PrioriteettijonoAlkio seuraava = edellinen.getSeuraaja();
                 
                 // paikka löytyi
                 if (seuraava.kustannus(maali) >= kustannus){
@@ -93,10 +93,10 @@ public class NodeJono {
      * @param alku alkio, josta tutkiminen aloitetaan
      * @param poistettava node, jota vastaava alkio poistetaan
      */
-    private void poista(JonoAlkio alku, Node poistettava){
-        JonoAlkio edellinen = alku;
+    private void poista(PrioriteettijonoAlkio alku, Node poistettava){
+        PrioriteettijonoAlkio edellinen = alku;
         while (edellinen.getSeuraaja() != null){
-            JonoAlkio seuraava = edellinen.getSeuraaja();
+            PrioriteettijonoAlkio seuraava = edellinen.getSeuraaja();
             
             if (seuraava.getNode() == poistettava){
                 edellinen.setSeuraaja(seuraava.getSeuraaja());
@@ -126,7 +126,7 @@ public class NodeJono {
         }
         
         int pituus = 1;
-        JonoAlkio edellinen = ensimmainen;
+        PrioriteettijonoAlkio edellinen = ensimmainen;
         while (edellinen.getSeuraaja() != null){
             edellinen = edellinen.getSeuraaja();
             pituus++;

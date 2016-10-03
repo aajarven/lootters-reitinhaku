@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
  */
 public class JonoAlkioTest {
     
-    JonoAlkio a;
+    PrioriteettijonoAlkio a;
     
     public JonoAlkioTest() {
     }
@@ -34,7 +34,7 @@ public class JonoAlkioTest {
     
     @Before
     public void setUp() {
-        a = new JonoAlkio(new Node(5, 5));
+        a = new PrioriteettijonoAlkio(new Node(5, 5));
     }
     
     @After
@@ -48,7 +48,7 @@ public class JonoAlkioTest {
     public void testSeuraajaToiminnallisuus() {
         assertEquals("Alkion, jolle ei ole asetettu seuraajaa, getSeuraaja-"
                 + "metodin pitäisi palauttaa null", null, a.getSeuraaja());
-        JonoAlkio seuraaja = new JonoAlkio(new Node(7, 8));
+        PrioriteettijonoAlkio seuraaja = new PrioriteettijonoAlkio(new Node(7, 8));
         a.setSeuraaja(seuraaja);
         assertEquals("Asetettaessa alkio toisen seuraajaksi, ei ensimmäisen"
                 + "alkion getSeuraaja-metodi palauttanut oikeaa arvoa", seuraaja,
@@ -61,7 +61,7 @@ public class JonoAlkioTest {
     @Test
     public void testGetNode() {
         Node n = new Node(5, 6);
-        a = new JonoAlkio(n);
+        a = new PrioriteettijonoAlkio(n);
         assertEquals("Alkion getNode-metodi palautti eri noden kuin alkiolle"
                 + "oli konstruktorissa annettu", n, a.getNode());
     }
@@ -78,12 +78,12 @@ public class JonoAlkioTest {
         alku.nollaaKustannusNodeenAsti();
         alku.lisaaNaapuri(toinen);
         
-        JonoAlkio ekaAlkio = new JonoAlkio(alku);
+        PrioriteettijonoAlkio ekaAlkio = new PrioriteettijonoAlkio(alku);
         assertEquals("Alkion kustannuksen palauttaminen toimi väärin kun noden"
                 + " g=0", 20, ekaAlkio.kustannus(maali), 0.001);
         
         toinen.yritaAsettajaaEdeltaja(alku);
-        JonoAlkio tokaAlkio = new JonoAlkio(toinen);
+        PrioriteettijonoAlkio tokaAlkio = new PrioriteettijonoAlkio(toinen);
         assertEquals("Alkion kustannuksen palauttaminen toimi väärin kun noden "
                 + "g != 0", 20, tokaAlkio.kustannus(maali), 0.001);
     }

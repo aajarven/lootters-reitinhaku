@@ -18,12 +18,12 @@ import static org.junit.Assert.*;
  *
  * @author Anni Järvenpää
  */
-public class NodeJonoTest {
+public class PrioriteettijonoTest {
     
     private Node maali;
-    private NodeJono jono;
+    private Prioriteettijono jono;
     
-    public NodeJonoTest() {
+    public PrioriteettijonoTest() {
     }
     
     @BeforeClass
@@ -37,7 +37,7 @@ public class NodeJonoTest {
     @Before
     public void setUp() {
         maali = new Node(10, 10);
-        jono = new NodeJono(maali);
+        jono = new Prioriteettijono(maali);
         
     }
     
