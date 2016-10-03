@@ -141,4 +141,12 @@ public class Node {
         }
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 83 * hash + this.x;
+        hash = 83 * hash + this.y;
+        return hash;
+    }
+
 }
