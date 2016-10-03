@@ -134,5 +134,16 @@ public class NodeTest {
         assertFalse("Noden ei pitäisi vaihtaa edeltäjää toiseen yhtä hyvään",
                 oa.yritaAsettajaaEdeltaja(oy));
     }
-
+    
+    @Test
+    public void testEquals(){
+        Node n1 = new Node(4, 8);
+        Node n2 = new Node(4, 8);
+        Node n3 = new Node(5, 7);
+        Object o = new Object();
+        
+        assertEquals("Kahden noden, joilla on samat koordinaatit, pitäisi olla samat", n1, n2);
+        assertNotEquals("Kahden noden, joilla on eri koordinaatit, ei pitäisi olla samat", n1, n3);
+        assertNotEquals("Noden ja olion, joka ei ole node, ei pitäisi olla samat", n1, o);
+    }
 }
