@@ -146,4 +146,13 @@ public class NodeTest {
         assertNotEquals("Kahden noden, joilla on eri koordinaatit, ei pitäisi olla samat", n1, n3);
         assertNotEquals("Noden ja olion, joka ei ole node, ei pitäisi olla samat", n1, o);
     }
+    
+    @Test
+    public void testHashCode(){
+        Node n1 = new Node(4, 8);
+        Node n2 = new Node(4, 8);
+        
+        assertEquals("Kahden noden, joilla on samat koordinaatit, HashCodejen pitäisi olla samat", n1.hashCode(), n2.hashCode());
+    }
+
 }
