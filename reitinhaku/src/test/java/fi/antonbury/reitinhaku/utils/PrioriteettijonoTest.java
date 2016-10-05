@@ -6,7 +6,6 @@
 package fi.antonbury.reitinhaku.utils;
 
 import fi.antonbury.reitinhaku.haku.Node;
-import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
