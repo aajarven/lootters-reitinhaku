@@ -120,18 +120,18 @@ public class Prioriteettijono {
      * Palauttaa jonon tämänhetkisen pituuden.
      * @return jonon pituus
      */
-    public int pituus(){
-        if (ensimmainen == null){
-            return 0;
-        }
-        
-        int pituus = 1;
-        PrioriteettijonoAlkio edellinen = ensimmainen;
-        while (edellinen.getSeuraaja() != null){
-            edellinen = edellinen.getSeuraaja();
-            pituus++;
-        }
-        
-        return pituus;
-    }
+//    public int pituus(){
+//        if (ensimmainen == null){
+//            return 0;
+//        }
+//        
+//        int pituus = 1;
+//        PrioriteettijonoAlkio edellinen = ensimmainen;
+//        while (edellinen.getSeuraaja() != null){
+//            edellinen = edellinen.getSeuraaja();
+//            pituus++;
+//        }
+//        
+//        return pituus;
+//    }
 }
