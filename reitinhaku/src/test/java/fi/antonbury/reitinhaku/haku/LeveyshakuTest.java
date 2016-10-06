@@ -70,6 +70,29 @@ public class LeveyshakuTest {
     }
     
     @Test
+    public void testTaytyyOdottaa(){
+        boolean[][] luolaboolean = null;
+        try {
+            luolaboolean = LuolaLukija.lueLuola("resources/testiluolat/hakuluola1.txt");
+        } catch (IOException ex) {
+            fail("Odottamaton poikkeus:\n" + ex.getMessage());
+        }
+        luola = NodeGeneraattori.generoiNodet(luolaboolean);
+        
+        luola[0][0].nollaaKustannusNodeenAsti();
+        Node[] maali = AStar.search(luola[0][0], luola[9][9]);
+        
+        luola = NodeGeneraattori.generoiNodet(luolaboolean);
+        luola[9][2].nollaaKustannusNodeenAsti();
+        Node[] polku = Leveyshaku.search(luola[9][2], maali);
+        
+        assertTrue("Polun ei pitäisi olla null kun sellainen on olemassa", polku!=null);
+        assertEquals("Polun pituus on väärä", 13, polku.length);
+        assertEquals("Polun ensimmäisen alkion pitäisi olla lähtöpaikka", luola[9][2], polku[0]);
+        assertEquals("Polun viimeisen alkion pitäisi olla solmu, johon kannattaa jäädä odottamaan", luola[4][9], polku[polku.length-1]);
+    }
+    
+    @Test
     public void testEiPolkua(){
         boolean[][] luolaboolean = null;
         try {
