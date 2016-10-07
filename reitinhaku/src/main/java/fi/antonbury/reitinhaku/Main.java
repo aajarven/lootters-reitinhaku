@@ -28,7 +28,7 @@ public class Main {
         }
         Node[][] luola = NodeGeneraattori.generoiNodet(luolaboolean);
         luola[0][0].nollaaKustannusNodeenAsti();
-        Node[] maali = AStar.search(luola[0][0], luola[9][9]);
+        Node[] maali = AStar.hae(luola[0][0], luola[9][9]);
         
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
         luola[6][2].nollaaKustannusNodeenAsti();

@@ -24,7 +24,7 @@ public class AStar {
      * @param maali maalinode
      * @return lähdön ja maalin välisen lyhyimmän polun nodet
      */
-    public static Node[] search(Node lahto, Node maali) {
+    public static Node[] hae(Node lahto, Node maali) {
 
         Prioriteettijono openSet = new Prioriteettijono(maali);
 

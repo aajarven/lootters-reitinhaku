@@ -46,7 +46,7 @@ public class AStarTest {
      * Test of search method, of class AStar.
      */
     @Test
-    public void testSearch() {
+    public void testHae() {
         boolean[][] luolaboolean = null;
         try {
             luolaboolean = LuolaLukija.lueLuola("resources/testiluolat/hakuluola1.txt");
@@ -56,7 +56,7 @@ public class AStarTest {
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
         
         luola[0][0].nollaaKustannusNodeenAsti();
-        Node[] polku = AStar.search(luola[0][0], luola[9][9]);
+        Node[] polku = AStar.hae(luola[0][0], luola[9][9]);
         
         assertEquals("Polun pituus on väärä", 19, polku.length);
         assertEquals("Polun ensimmäisen alkion pitäisi olla lähtöpaikka", luola[0][0], polku[0]);
@@ -75,7 +75,7 @@ public class AStarTest {
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
         
         luola[0][0].nollaaKustannusNodeenAsti();
-        Node[] polku = AStar.search(luola[0][0], luola[9][9]);
+        Node[] polku = AStar.hae(luola[0][0], luola[9][9]);
         
         assertEquals("Kun maalisolmua on mahdotonta saavuttaa, pitäisi palauttaa null", null, polku);
     }

@@ -56,7 +56,7 @@ public class LeveyshakuTest {
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
         
         luola[0][0].nollaaKustannusNodeenAsti();
-        Node[] maali = AStar.search(luola[0][0], luola[9][9]);
+        Node[] maali = AStar.hae(luola[0][0], luola[9][9]);
         
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
         luola[6][2].nollaaKustannusNodeenAsti();
@@ -80,7 +80,7 @@ public class LeveyshakuTest {
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
         
         luola[0][0].nollaaKustannusNodeenAsti();
-        Node[] maali = AStar.search(luola[0][0], luola[9][9]);
+        Node[] maali = AStar.hae(luola[0][0], luola[9][9]);
         
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
         luola[9][2].nollaaKustannusNodeenAsti();
@@ -103,7 +103,7 @@ public class LeveyshakuTest {
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
         
         luola[0][0].nollaaKustannusNodeenAsti();
-        Node[] maali = AStar.search(luola[0][0], luola[1][4]);
+        Node[] maali = AStar.hae(luola[0][0], luola[1][4]);
         
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
         luola[6][2].nollaaKustannusNodeenAsti();
@@ -123,7 +123,7 @@ public class LeveyshakuTest {
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
         
         luola[1][2].nollaaKustannusNodeenAsti();
-        Node[] maali = AStar.search(luola[1][2], luola[9][9]);
+        Node[] maali = AStar.hae(luola[1][2], luola[9][9]);
         
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
         luola[1][1].nollaaKustannusNodeenAsti();
