@@ -68,8 +68,18 @@ Prioriteettijonosta testataan, että kun jonoon laitetaan yksi node ja sitten po
 
 Lisäksi tarkastetaan, että kun jonoon laitetaan useita nodeja satunnaisessa, palauttaa poimiNode-metodi niitä sellaisessa järjestyksessä, että seuraavan noden kokonaiskustannus-metodi palauttaa vähintään yhtä suuren luvun kuin edellisen. Erikseen testataan, että jonon ensimmäisen alkion vaihtaminen toimii lisäämällä tyhjään jonoon ensin yksi alkio ja sen jälkeen toinen, jonka kustannus on pienempi. Lisäksi testataan lisäämällä jonoon sama alkio useita kertoja ja varmistamalla, että jono on tyhjä yhden poiston jälkeen, että jono ei tallenna duplikaatteja. Samaa testataan vielä lisäämällä jonoon vaihtelevassa järjestyksessä kahta eri nodea vaihtelevassa järjestyksessä, poimimalla node kahdesti ja tarkastamalla jonon tyhjyys.
 
-###AStar
+### AStar
+AStar-luokasta testataan, että mikäli polku lähtösolmusta maaliin on olemassa, search-metodi palauttaa polun, kun sellainen on pelialueelta löydettävissä. Tästä polusta tarkastetaan, että se on yhtä pitkä kuin todellinen lyhyin reitti, alkusolmu ja loppusolmu ovat oikeat ja näiden väliltä löytyy oikea solmu oikeasta paikasta. Kaikkien solmujen oikeellisuutta ei vertailla, sillä osa reitin solmuista ei ole yksikäsitteisiä, sillä yhtä lyhyitä reittejä on useita testiluolastossa.
 
+Lisäksi testataan, että kun polkua lähtösolmun ja maalisolmun välillä ei ole, palautetaan null.
+
+### Leveyshaku
+Leveyshaun toimintaa testataan vastaavasti kuin A*-haun. Niissä tapauksissa, joissa polku on olemassa, tutkitaan, ettei palautettu null, polun pituus on oikea, se alkaa ja päättyy oikeaan nodeen ja polun keskeltä valitaan jokin yksikäsitteinen alkio tutkittavaksi.
+
+Oikean polun löytäminen testataan sekä tapauksessa, jossa jahdattava saadaan kiinni "triviaalisti" että tapauksessa, jossa jahtaajan täytyy jäädä "odottamaan" etteivät jahtaaja ja jahdattava kulkisi ristiin. Lisäksi testataan tapas, jossa jahtaaja ja jahdattava lähtevät vierekkäisistä ruuduista takaa-ajoasemasta sekä tapaus, jossa jahtaaja ei selvästi ehdi saada jahdattavaa kiinni.
+
+### PolkuGeneraattori
+Polkugeneraattoria testattaessa testataan että nodeista, joista muodostuu hämäysnodeilla höystetty polku, generoidaan oikeanmittainen ja oikeat nodet sisältävä polku annetusta maalinodesta ensimmäiseen (eli edeltäjättömään) nodeen asti.
 
 ## Testien toistettavuus
 
