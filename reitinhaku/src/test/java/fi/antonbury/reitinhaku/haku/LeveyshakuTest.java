@@ -112,4 +112,25 @@ public class LeveyshakuTest {
         assertTrue("Leveyshaun pitäisi palauttaa null kun polkua ei löydy", null==polku);
     }
     
+    @Test
+    public void testTakaaAjo(){
+        boolean[][] luolaboolean = null;
+        try {
+            luolaboolean = LuolaLukija.lueLuola("resources/testiluolat/hakuluola1.txt");
+        } catch (IOException ex) {
+            fail("Odottamaton poikkeus:\n" + ex.getMessage());
+        }
+        luola = NodeGeneraattori.generoiNodet(luolaboolean);
+        
+        luola[1][2].nollaaKustannusNodeenAsti();
+        Node[] maali = AStar.search(luola[1][2], luola[9][9]);
+        
+        luola = NodeGeneraattori.generoiNodet(luolaboolean);
+        luola[1][1].nollaaKustannusNodeenAsti();
+        Node[] polku = Leveyshaku.search(luola[1][1], maali);
+        
+        assertTrue("Kun jahdattavaa ei voida saada kiinni, pitäisi leveyshaun "
+                + "palauttaa null", polku==null);
+    }
+    
 }
