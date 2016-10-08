@@ -1,6 +1,6 @@
 # Toteutusdokumentti
 ## Ohjelman yleisrakenne
-Ohjelman voi katsoa koostuvan kolmesta erillisestä osasta: ensin generoidaan annetun luolatiedoston perusteella Nodet, sitten etsitään jahattavalle reitti annettuun maalinodeen ja lopuksi generoidaan jahtaajam reitti matkalla jahdattavan luo käyttäen joko DFS-hakua tai ________.
+Ohjelman voi katsoa koostuvan kolmesta erillisestä osasta: ensin generoidaan annetun luolatiedoston perusteella Nodet, sitten etsitään jahattavalle reitti annettuun maalinodeen ja lopuksi generoidaan jahtaajam reitti matkalla jahdattavan luo käyttäen joko BFS-hakua tai ________.
 
 ### Luolan generointi
 Luolan lukemisesta tiedostosta huolehtii LuolaLukija-luokka. Sen lueLuola-metodi saa parametrina tiedostonimen, josta luetaan ensin luolan loopullinen koko ja tyhjän boolean-taulukon luomisen jälkeen tämä taulukko täytetään arvoilla sen mukaan, mitkä ruuduista ovat hahmojen käveltävissä.
@@ -15,9 +15,14 @@ Noden naapureista pitää kirjaa NaapuriLista, joka käyttää yksiulotteista ta
 ### A*-haku ja prioriteettijono
 Toteuttamani A*-haku toimii hyvin pitkälti samoin kuin kurssilla tietorakenteet ja algoritmit esitetty, sillä sitä käytetään vain liikkumattomaan maaliin hakeutumiseen. Haun käyttämä PriorityQueue on kuitenkin toteutettu itse käyttäen linkitettyä listaa ja järjestämisperusteena nodeen pääsemiseksi vaaditun kustannuksen ja heuristiikan summaa. Prioriteettijonon toteutuksessa huolehditaan alkioiden oikean järjestyksen lisäksi siitä, ettei listassa ole duplikaatteja samasta nodesta.
 
-### DFS-haku
+### BFS-haku
+Toteuttamani Leveyshaku-luokan hae-metodi vastaa perustoiminnallisuudeltaan BFS-hakua. Siihen on kuitenkin lisätty toiminnallisuus, joka tarkastaa, onko node osa jahdattavan myöhempää reittiä vaikka jahdattava ei juuri sillä vuorolla olisikaan kyseisessä Nodessa. Näistä saavutetuista myöhemmin polulla sijaitsevista nodeista pidetään muistissa se, jonka indeksi maalipolulla on pienin. Mikäli algoritmi ei löydä reittiä suoraan samaan ruutuun jahdattavan kanssa, palauttaa algoritmi reitin parhaaseen löydettyyn polulla sijaitsevaan nodeen. Näin vältytään tilanteelta, jossa reitin löytymistä ei tunnisteta vaikka jahtaajan on mahdollista päästä jahdattavan reitille ruutuun, johon jahdattava siirtyisi seuraavalla vuorolla, jolloin jahdattava olisi saatavissa kiinni jäämällä tähän ruutuun odottamaan.
 
 ## Saavutetut aika- ja tilavaativuudet
+Johtuen ongelman luonteesta osana peliä, jossa jokainen pelialueen ruutu siihen liittyvine tietoineen pidetään muistissa joka tapauksessa, toteutin myös haun siten, että kaikki nodet ovat muistissa koko suorituksen ajan. Näin ollen ohjelman tilavaativuus on luokkaa O(n) missä n on nodejen määrä kartalla. Yleisestä tapauksesta poiketen nodejen naapuruussuhteiden määrä ei vaikuta tähän, sillä tässä konfiguraatiossa kullakin nodella voi olla korkeintaan neljä naapuria, eikä tällainen vakiokerroin vaikuta tilavaativuuteen.
+
+Luettaessa luolaa tiedostosta ja generoitaessa nodeja luodun totuusarvotaulukon perusteella käydään nodetaulukko kerran läpi suorittaen vakioaikaisia operaatioita, eli kunkin niistä aikavaativuus on luokkaa O(n). 
+
 
 ## Suorituskyky- ja O-analyysivertailut
 
