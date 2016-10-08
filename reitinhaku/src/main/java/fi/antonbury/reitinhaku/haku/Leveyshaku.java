@@ -24,7 +24,7 @@ public class Leveyshaku {
      * @return maalin luo vievän reitin nodet taulukossa tai null mikäli reittiä
      * ei ole
      */
-    public static Node[] search(Node lahto, Node[] maali) {
+    public static Node[] hae(Node lahto, Node[] maali) {
         Jono jono = new Jono();
         jono.lisaaAlkio(lahto);
         Node parasReitilta = null; // aikaisimmin jahdattavan reitillä oleva löydetty node

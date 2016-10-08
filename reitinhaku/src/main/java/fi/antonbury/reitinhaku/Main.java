@@ -32,7 +32,7 @@ public class Main {
         
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
         luola[6][2].nollaaKustannusNodeenAsti();
-        Node[] polku = Leveyshaku.search(luola[6][2], maali);
+        Node[] polku = Leveyshaku.hae(luola[6][2], maali);
         
         System.out.println(polku);
     }

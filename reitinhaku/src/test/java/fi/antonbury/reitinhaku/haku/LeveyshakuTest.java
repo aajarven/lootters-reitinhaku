@@ -46,7 +46,7 @@ public class LeveyshakuTest {
      * Test of BFS method, of class Leveyshaku.
      */
     @Test
-    public void testSearch() {
+    public void testHae() {
         boolean[][] luolaboolean = null;
         try {
             luolaboolean = LuolaLukija.lueLuola("resources/testiluolat/hakuluola1.txt");
@@ -60,7 +60,7 @@ public class LeveyshakuTest {
         
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
         luola[6][2].nollaaKustannusNodeenAsti();
-        Node[] polku = Leveyshaku.search(luola[6][2], maali);
+        Node[] polku = Leveyshaku.hae(luola[6][2], maali);
         
         assertTrue("Polun ei pitäisi olla null kun sellainen on olemassa", polku!=null);
         assertEquals("Polun pituus on väärä", 7, polku.length);
@@ -84,7 +84,7 @@ public class LeveyshakuTest {
         
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
         luola[9][2].nollaaKustannusNodeenAsti();
-        Node[] polku = Leveyshaku.search(luola[9][2], maali);
+        Node[] polku = Leveyshaku.hae(luola[9][2], maali);
         
         assertTrue("Polun ei pitäisi olla null kun sellainen on olemassa", polku!=null);
         assertEquals("Polun pituus on väärä", 13, polku.length);
@@ -107,7 +107,7 @@ public class LeveyshakuTest {
         
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
         luola[6][2].nollaaKustannusNodeenAsti();
-        Node[] polku = Leveyshaku.search(luola[6][2], maali);
+        Node[] polku = Leveyshaku.hae(luola[6][2], maali);
         
         assertTrue("Leveyshaun pitäisi palauttaa null kun polkua ei löydy", null==polku);
     }
@@ -127,7 +127,7 @@ public class LeveyshakuTest {
         
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
         luola[1][1].nollaaKustannusNodeenAsti();
-        Node[] polku = Leveyshaku.search(luola[1][1], maali);
+        Node[] polku = Leveyshaku.hae(luola[1][1], maali);
         
         assertTrue("Kun jahdattavaa ei voida saada kiinni, pitäisi leveyshaun "
                 + "palauttaa null", polku==null);
