@@ -27,35 +27,35 @@ public class Suorituskykytestaus {
     }
     
     private static void testaaLuolalla(String tiedosto, int jahdattavaX, int jahdattavaY, int jahtaajaX, int jahtaajaY, int maaliX, int maaliY){
-        long t0 = System.currentTimeMillis();
+        long t0 = System.nanoTime();
         boolean[][] luolaboolean = null;
         try {
             luolaboolean = LuolaLukija.lueLuola(tiedosto);
         } catch (IOException ex) {
         }
-        long t1 = System.currentTimeMillis();
+        long t1 = System.nanoTime();
         long booleanGenerointiAika = t1-t0;
         
-        t0 = System.currentTimeMillis(); 
+        t0 = System.nanoTime(); 
         Node[][] luola = NodeGeneraattori.generoiNodet(luolaboolean);
-        t1 = System.currentTimeMillis(); 
+        t1 = System.nanoTime(); 
         long nodeGenerointiAika = t1 - t0;
         
-        t0 = System.currentTimeMillis(); 
+        t0 = System.nanoTime(); 
         luola[jahdattavaY][jahdattavaX].nollaaKustannusNodeenAsti(); //TODO aseta paikat
         Node[] maali = AStar.hae(luola[jahdattavaY][jahdattavaX], luola[maaliY][maaliX]);
-        t1 = System.currentTimeMillis();
+        t1 = System.nanoTime();
         long AstarAika = t1 - t0;
         
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
         
-        t0 = System.currentTimeMillis(); 
+        t0 = System.nanoTime(); 
         luola[jahtaajaY][jahtaajaX].nollaaKustannusNodeenAsti();
         Node[] polku = Leveyshaku.hae(luola[jahtaajaY][jahtaajaX], maali);
-        t1 = System.currentTimeMillis();
+        t1 = System.nanoTime();
         long leveyshakuAika = t1 - t0;
         
-        System.out.println(booleanGenerointiAika + "\t" + nodeGenerointiAika + "\t" + AstarAika + "\t" + leveyshakuAika);
+        System.out.println(booleanGenerointiAika/1000 + "\t" + nodeGenerointiAika/1000 + "\t" + AstarAika/1000 + "\t" + leveyshakuAika/1000);
     }
     
 }
