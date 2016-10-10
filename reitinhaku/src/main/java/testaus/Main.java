@@ -19,23 +19,7 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) {
-//        boolean[][] luolaboolean = null;
-//        try {
-//            luolaboolean = LuolaLukija.lueLuola("resources/testiluolat/hakuluola1.txt");
-//        } catch (IOException ex) {
-//            System.out.println("Virhe luolaa luettaessa");
-//            
-//        }
-//        Node[][] luola = NodeGeneraattori.generoiNodet(luolaboolean);
-//        luola[0][0].nollaaKustannusNodeenAsti();
-//        Node[] maali = AStar.hae(luola[0][0], luola[9][9]);
-//        
-//        luola = NodeGeneraattori.generoiNodet(luolaboolean);
-//        luola[6][2].nollaaKustannusNodeenAsti();
-//        Node[] polku = Leveyshaku.hae(luola[6][2], maali);
-//        
-//        System.out.println(polku);
-        
-        Suorituskykytestaus.testaaSokkelolla();
+//        Suorituskykytestaus.testaaSokkelolla();
+        Suorituskykytestaus.testaaAvoimella();
     }
 }
