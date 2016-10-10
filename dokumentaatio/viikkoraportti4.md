@@ -1,10 +1,13 @@
-# Viikkoraportti 4 (6 h)
+# Viikkoraportti 4 (30 h)
 ## Viikon aikaansaannokset
 * Javadocceja
 * "Tavallinen" jono prioriteettijonon lisäksi
 * Leveyshaku + testit
 * Muutoksia Nodeen, jotta se toimii leveyshaussa
 * Valmiit tietorakenteet kokonaan pois jo toteutetuista osista
+* Testit ajantasalle
+* Suorituskykytestaus
+* Dokumentaatio
 
 ## Mitä opin
 * Että ajatukseni IDAsta ja IDA*stä olivat typeriä.
