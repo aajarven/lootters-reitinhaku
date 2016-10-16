@@ -5,13 +5,6 @@
  */
 package testaus;
 
-import fi.antonbury.reitinhaku.haku.AStar;
-import fi.antonbury.reitinhaku.haku.Leveyshaku;
-import fi.antonbury.reitinhaku.haku.Node;
-import fi.antonbury.reitinhaku.utils.LuolaLukija;
-import fi.antonbury.reitinhaku.utils.NodeGeneraattori;
-import java.io.IOException;
-
 /**
  *
  * @author anni
