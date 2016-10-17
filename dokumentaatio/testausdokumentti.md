@@ -82,7 +82,13 @@ Oikean polun löytäminen testataan sekä tapauksessa, jossa jahdattava saadaan 
 Polkugeneraattoria testattaessa testataan että nodeista, joista muodostuu hämäysnodeilla höystetty polku, generoidaan oikeanmittainen ja oikeat nodet sisältävä polku annetusta maalinodesta ensimmäiseen (eli edeltäjättömään) nodeen asti.
 
 ## Suorituskykytestaus
-
+Avoin kartta: ajokertojen 2-20 keskiarvo. Kaikki ajat nanosekunteja.
+| Selite				| boolean	| nodet	| A*	| haku	|
+|-----------------------|-----------|-------|-------|-------|
+| Leveyshaku: reitti on | 1822		| 1142	| 69	| 701	|
+| Leveyshaku: takaa-ajo	| 1053		| 898	| 262	| 833	|
+| IDA*: reitti on		| 765		| 751	| 41	| 13	|
+| IDA*: takaa-ajo		| 776		| 746	| 156	| 9		|
 
 ## Testien toistettavuus
 Ohjelman toiminnallisuuden toteamiseen käytetään JUnit-testejä, joten ne voidaan ajaa helposti IDEn kuten Netbeansin testaustoimintoa tai vaihtoehtoisesti komentoriviltä.
