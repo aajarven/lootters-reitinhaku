@@ -83,6 +83,7 @@ Polkugeneraattoria testattaessa testataan että nodeista, joista muodostuu häm�
 
 ## Suorituskykytestaus
 Avoin kartta: ajokertojen 2-20 keskiarvo. Kaikki ajat nanosekunteja.
+
   Selite				| boolean	| nodet	| A*	| haku	
 ------------------------|-----------|-------|-------|-------
 Leveyshaku: reitti on	| 1822		| 1142	| 69	| 701	
