@@ -43,13 +43,10 @@ public class IDAStar {
                 if (palautettu != null) {
                     palautettu[kustannus] = n;
                     return palautettu;
-                } else {
-                    naapuri.nollaaEdeltaja();
                 }
             }
         }
 
         return null;
     }
-
 }
