@@ -115,7 +115,7 @@ public class Node {
      * @param maali
      * @return
      */
-    private double heuristiikka(Node maali) {
+    public double heuristiikka(Node maali) {
         return Math.abs(x - maali.getX()) + Math.abs(y - maali.getY());
     }
 
@@ -146,6 +146,15 @@ public class Node {
         hash = 83 * hash + this.x;
         hash = 83 * hash + this.y;
         return hash;
+    }
+    
+    /**
+     * Poistaa nodella mahdollisesti olevan edeltäjän ja asettaa nodeen asti 
+     * pääsemiseksi vaadittavan kustannuksen maksimiarvoon.
+     */
+    public void nollaaEdeltaja(){
+        this.edeltaja = null;
+        this.kustannusNodeenAsti = Integer.MAX_VALUE;
     }
 
 }
