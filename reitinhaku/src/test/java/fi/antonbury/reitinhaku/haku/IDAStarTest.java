@@ -107,7 +107,7 @@ public class IDAStarTest {
         luola[6][2].nollaaKustannusNodeenAsti();
         Node[] polku = IDAStar.hae(luola[6][2], maali);
         
-        assertTrue("Leveyshaun pitäisi palauttaa null kun polkua ei löydy", null==polku);
+        assertTrue("IDA*-haun pitäisi palauttaa null kun polkua ei löydy", null==polku);
     }
     
     @Test
@@ -125,7 +125,7 @@ public class IDAStarTest {
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
         Node[] polku = IDAStar.hae(luola[1][1], maali);
         
-        assertTrue("Kun jahdattavaa ei voida saada kiinni, pitäisi leveyshaun "
+        assertTrue("Kun jahdattavaa ei voida saada kiinni, pitäisi IDA*-haun "
                 + "palauttaa null", polku==null);
     }
     
