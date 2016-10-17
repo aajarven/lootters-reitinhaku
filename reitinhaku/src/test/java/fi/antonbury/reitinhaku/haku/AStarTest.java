@@ -10,6 +10,7 @@ import fi.antonbury.reitinhaku.utils.NodeGeneraattori;
 import java.io.IOException;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -77,7 +78,7 @@ public class AStarTest {
         luola[0][0].nollaaKustannusNodeenAsti();
         Node[] polku = AStar.hae(luola[0][0], luola[9][9]);
         
-        assertEquals("Kun maalisolmua on mahdotonta saavuttaa, pitäisi palauttaa null", null, polku);
+        Assert.assertArrayEquals("Kun maalisolmua on mahdotonta saavuttaa, pitäisi palauttaa null", null, polku);
     }
     
 }
