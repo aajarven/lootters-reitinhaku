@@ -83,12 +83,12 @@ Polkugeneraattoria testattaessa testataan ett채 nodeista, joista muodostuu h채m�
 
 ## Suorituskykytestaus
 Avoin kartta: ajokertojen 2-20 keskiarvo. Kaikki ajat nanosekunteja.
-| Selite				| boolean	| nodet	| A*	| haku	|
-|-----------------------|-----------|-------|-------|-------|
-| Leveyshaku: reitti on | 1822		| 1142	| 69	| 701	|
-| Leveyshaku: takaa-ajo	| 1053		| 898	| 262	| 833	|
-| IDA*: reitti on		| 765		| 751	| 41	| 13	|
-| IDA*: takaa-ajo		| 776		| 746	| 156	| 9		|
+  Selite				| boolean	| nodet	| A*	| haku	
+------------------------|-----------|-------|-------|-------
+Leveyshaku: reitti on	| 1822		| 1142	| 69	| 701	
+Leveyshaku: takaa-ajo	| 1053		| 898	| 262	| 833	
+IDA*: reitti on			| 765		| 751	| 41	| 13	
+IDA*: takaa-ajo			| 776		| 746	| 156	| 9		
 
 ## Testien toistettavuus
 Ohjelman toiminnallisuuden toteamiseen k채ytet채채n JUnit-testej채, joten ne voidaan ajaa helposti IDEn kuten Netbeansin testaustoimintoa tai vaihtoehtoisesti komentorivilt채.
