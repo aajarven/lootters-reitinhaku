@@ -118,7 +118,7 @@ Testasin ohjelman suorituskykyä kahdenlaisilla kartoilla: täysin avoimilla sek
     #         # #       #       #     #           #   # #   # #     # #
     #         # #     #               #           # #           #         # # #
     #         # #   #       #         # # # #   # #             # #         # #
-              # # #       #   # # # # #             #               #       # #[
+              # # #       #   # # # # #             #               #       # #
               # #       #           #                 #     # # #     #
 # # # #       # #     #           #       # # # # #     #       #
               # #   #             #                 #           # # # # # #
