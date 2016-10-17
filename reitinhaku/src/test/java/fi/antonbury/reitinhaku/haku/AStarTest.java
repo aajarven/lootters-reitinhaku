@@ -56,7 +56,6 @@ public class AStarTest {
         }
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
         
-        luola[0][0].nollaaKustannusNodeenAsti();
         Node[] polku = AStar.hae(luola[0][0], luola[9][9]);
         
         assertEquals("Polun pituus on väärä", 19, polku.length);
@@ -75,7 +74,6 @@ public class AStarTest {
         }
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
         
-        luola[0][0].nollaaKustannusNodeenAsti();
         Node[] polku = AStar.hae(luola[0][0], luola[9][9]);
         
         Assert.assertArrayEquals("Kun maalisolmua on mahdotonta saavuttaa, pitäisi palauttaa null", null, polku);

@@ -55,11 +55,9 @@ public class LeveyshakuTest {
         }
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
         
-        luola[0][0].nollaaKustannusNodeenAsti();
         Node[] maali = AStar.hae(luola[0][0], luola[9][9]);
         
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
-        luola[6][2].nollaaKustannusNodeenAsti();
         Node[] polku = Leveyshaku.hae(luola[6][2], maali);
         
         assertTrue("Polun ei pitäisi olla null kun sellainen on olemassa", polku!=null);
@@ -79,11 +77,9 @@ public class LeveyshakuTest {
         }
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
         
-        luola[0][0].nollaaKustannusNodeenAsti();
         Node[] maali = AStar.hae(luola[0][0], luola[9][9]);
         
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
-        luola[9][2].nollaaKustannusNodeenAsti();
         Node[] polku = Leveyshaku.hae(luola[9][2], maali);
         
         assertTrue("Polun ei pitäisi olla null kun sellainen on olemassa", polku!=null);
@@ -102,11 +98,9 @@ public class LeveyshakuTest {
         }
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
         
-        luola[0][0].nollaaKustannusNodeenAsti();
         Node[] maali = AStar.hae(luola[0][0], luola[1][4]);
         
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
-        luola[6][2].nollaaKustannusNodeenAsti();
         Node[] polku = Leveyshaku.hae(luola[6][2], maali);
         
         assertTrue("Leveyshaun pitäisi palauttaa null kun polkua ei löydy", null==polku);
@@ -122,11 +116,9 @@ public class LeveyshakuTest {
         }
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
         
-        luola[1][2].nollaaKustannusNodeenAsti();
         Node[] maali = AStar.hae(luola[1][2], luola[9][9]);
         
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
-        luola[1][1].nollaaKustannusNodeenAsti();
         Node[] polku = Leveyshaku.hae(luola[1][1], maali);
         
         assertTrue("Kun jahdattavaa ei voida saada kiinni, pitäisi leveyshaun "

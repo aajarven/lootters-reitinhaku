@@ -55,11 +55,9 @@ public class IDAStarTest {
         }
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
         
-        luola[0][0].nollaaKustannusNodeenAsti();
         Node[] maali = AStar.hae(luola[0][0], luola[9][9]);
         
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
-        luola[6][2].nollaaKustannusNodeenAsti();
         Node[] polku = IDAStar.hae(luola[6][2], maali);
         
         assertTrue("Polun ei pitäisi olla null kun sellainen on olemassa", polku!=null);
@@ -122,11 +120,9 @@ public class IDAStarTest {
         }
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
         
-        luola[1][2].nollaaKustannusNodeenAsti();
         Node[] maali = AStar.hae(luola[1][2], luola[9][9]);
         
         luola = NodeGeneraattori.generoiNodet(luolaboolean);
-        luola[1][1].nollaaKustannusNodeenAsti();
         Node[] polku = IDAStar.hae(luola[1][1], maali);
         
         assertTrue("Kun jahdattavaa ei voida saada kiinni, pitäisi leveyshaun "

@@ -25,6 +25,8 @@ public class Leveyshaku {
      * ei ole
      */
     public static Node[] hae(Node lahto, Node[] maali) {
+        lahto.nollaaKustannusNodeenAsti();
+        
         Jono jono = new Jono();
         jono.lisaaAlkio(lahto);
         Node parasReitilta = null; // aikaisimmin jahdattavan reitillä oleva löydetty node

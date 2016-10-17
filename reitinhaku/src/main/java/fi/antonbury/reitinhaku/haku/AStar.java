@@ -25,9 +25,9 @@ public class AStar {
      * @return lähdön ja maalin välisen lyhyimmän polun nodet
      */
     public static Node[] hae(Node lahto, Node maali) {
-
+        lahto.nollaaKustannusNodeenAsti();
+        
         Prioriteettijono openSet = new Prioriteettijono(maali);
-
         openSet.lisaaNode(lahto);
 
         while (!openSet.onTyhja()) {
