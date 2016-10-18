@@ -82,8 +82,59 @@ Oikean polun löytäminen testataan sekä tapauksessa, jossa jahdattava saadaan 
 Polkugeneraattoria testattaessa testataan että nodeista, joista muodostuu hämäysnodeilla höystetty polku, generoidaan oikeanmittainen ja oikeat nodet sisältävä polku annetusta maalinodesta ensimmäiseen (eli edeltäjättömään) nodeen asti.
 
 ## Suorituskykytestaus
+Testasin ohjelman suorituskykyä kahdenlaisilla kartoilla: täysin avoimilla sekä "labyrinttimaisilla" pääosin yhdestä muutamaan ruutua leveistä käytävistä koostuvilla kartoilla. Avoimen kartan testit suoritin kaikki vakiokokoisella 80x80 kartalla, jossa ainoastaan asemoin jahdattavan, jahtaajan ja maalin sellaisiin paikkoihin, joista polun pituus ja todellisuudessa hakuun käytettävä alue ovat halutunkokoisia. Labyrinttimaisia karttoja loin useita eri kokoluokissa välillä 20x20 - 80x80. Nämä ovat tyypillisesti (mahdollisesti cropattuja) monikertoja allaolevasta labyrintista. Jotkin edellyttivät pieniä muutoksia, mikäli labyrintin reunojen poistaminen olisi muuten tuottanut laajoja epäyhtenäisiä alueita.
+<pre>
+    #                 #             # # # # # # # # # #
+    #   #     # #     #             # # # #       #   # #       #     #     #
+        #         #     #           # # # #       #     # #       # #     #
+# # # # # # #     #     # # #   #       # # #     #                         #
+            #     #             #         # # #       # # # # # # # #     #
+  #     # # #     #         # # #           # # # #         #       #       #
+  #     #         #             #               # # # #     #     # #       #
+  #             # # # #     #     #                 # # #   #     #     #   #
+  #   # # # # # #           # #   #                         #         # # #
+            #                   # # # # #     # #           #     #     #     #
+# # #     #   # # # # # #                 #   # #       # # # #   #           #
+        #           #   #                 #     # #   # # # # # # # # #   #   #
+        #         #     #     # # # # #   #       # # # #   #   # # # # # #
+  #   #           #     #     #           #       # #                 # #
+  # #         #   #           #           #       #                 # # # #
+        # #   #         #     #     # # # # # # # #         #         # # # #
+# #   #     # #         #             # # #     # #         # #         # # # #
+    #         # # #   # # # # # #     # # #     # #         # #         # # # #
+                    #           #     # # #     # #         # #         # # #
+                    #           #     # # #                   #         # #
+          # # # #   #     #     #       #                               # #
+          #         # # # #     # # #   #     # # # #                 #
+# # #   # #     #               #           #         #             # #
+                #   #     #           #   #             #         # #   #
+  # #     # # #           #     #     #   #               #       #     #
+#     # #       #   #       #   #     #                   #       #       # #
+                    #         #   #     # #             #       # # #     # #
+    #   # # # # # # # # # # #       #   #   #         #     # # # # #     #
+    #                       #           #     #     #       #
+    #         # #           #   #   # # # #     # #       # # # # #     # # # #
+    #         # #         # #   #         #       #                 # #
+    #         # #       #       #     #           #   # #   # #     # #
+    #         # #     #               #           # #           #         # # #
+    #         # #   #       #         # # # #   # #             # #         # #
+              # # #       #   # # # # #             #               #       # #
+              # #       #           #                 #     # # #     #
+# # # #       # #     #           #       # # # # #     #       #
+              # #   #             #                 #           # # # # # #
+    # # # # #       #     # #   #             # #       #       #     # # #
+    #           #         # #         # # # #     #     #     #       # # #                     
+</pre>
+
+### Avoin kartta
+Avoimella kartalla testasin sekä BFS- että IDA\*-hakuja tilanteissa, joissa jahtaajan polku jahdattavan luo vaihteli kymmenen askeleen portain välillä [30, 80].
+
+![Luolan luomisen vaiheisiin kuluneet ajat](kuvat/luontiajat.png)
+
 DISCLAIMER: LUVUT OVAT PUPPUA. PLACEHOLDER JA MUISTUTUS SIITÄ, MITEN TAULUKOITA TEHDÄÄN
 Avoin 80x80 ruudun kartta: ajokertojen 2-20 keskiarvo. Kaikki ajat nanosekunteja.
+
+Avoimella 80x80 ruudun karttaa edustavan 
 
   Selite				| boolean	| nodet	| A*	| haku	
 ------------------------|-----------|-------|-------|-------
