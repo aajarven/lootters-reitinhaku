@@ -36,7 +36,7 @@ public class Main {
 //            System.out.println(n.getX()+"\t"+n.getY());
 //        }
         
-//        Suorituskykytestaus.testaaSokkelolla();
-        Suorituskykytestaus.testaaAvoimella();
+        Suorituskykytestaus.testaaSokkelolla();
+//        Suorituskykytestaus.testaaAvoimella();
     }
 }

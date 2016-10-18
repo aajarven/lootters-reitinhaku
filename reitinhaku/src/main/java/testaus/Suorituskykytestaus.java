@@ -42,7 +42,7 @@ public class Suorituskykytestaus {
         }
         
         System.out.println("IDA*: avoin 80x80, reitti löytyy");
-        System.out.println("pituus\tboolean\tnodet\tA*\tBFS");
+        System.out.println("pituus\tboolean\tnodet\tA*\tIDA*");
         for(int i=0; i<20; i++){
             testaaIDAStarLuolalla("resources/testiluolat/80avoin.txt", 0, 0, 79, 79, 0, 79);
         }
@@ -101,37 +101,37 @@ public class Suorituskykytestaus {
         
         System.out.println("\nIDA*: avoin 80x80, takaa-ajo");
         System.out.println("156");
-        System.out.println("pituus\tboolean\tnodet\tA*\tBFS");
+        System.out.println("pituus\tboolean\tnodet\tA*\tIDA*");
         for(int i=0; i<20; i++){
             testaaIDAStarLuolalla("resources/testiluolat/80avoin.txt", 1, 1, 0, 0, 79, 79);
         }
         
         System.out.println("136");
-        System.out.println("pituus\tboolean\tnodet\tA*\tBFS");
+        System.out.println("pituus\tboolean\tnodet\tA*\tIDA*");
         for(int i=0; i<20; i++){
             testaaIDAStarLuolalla("resources/testiluolat/80avoin.txt", 1, 1, 0, 0, 69, 69);
         }
         
         System.out.println("116");
-        System.out.println("pituus\tboolean\tnodet\tA*\tBFS");
+        System.out.println("pituus\tboolean\tnodet\tA*\tIDA*");
         for(int i=0; i<20; i++){
             testaaIDAStarLuolalla("resources/testiluolat/80avoin.txt", 1, 1, 0, 0, 59, 59);
         }
         
         System.out.println("96");
-        System.out.println("pituus\tboolean\tnodet\tA*\tBFS");
+        System.out.println("pituus\tboolean\tnodet\tA*\tIDA*");
         for(int i=0; i<20; i++){
             testaaIDAStarLuolalla("resources/testiluolat/80avoin.txt", 1, 1, 0, 0, 49, 49);
         }
         
         System.out.println("76");
-        System.out.println("pituus\tboolean\tnodet\tA*\tBFS");
+        System.out.println("pituus\tboolean\tnodet\tA*\tIDA*");
         for(int i=0; i<20; i++){
             testaaIDAStarLuolalla("resources/testiluolat/80avoin.txt", 1, 1, 0, 0, 39, 39);
         }
         
         System.out.println("56");
-        System.out.println("pituus\tboolean\tnodet\tA*\tBFS");
+        System.out.println("pituus\tboolean\tnodet\tA*\tIDA*");
         for(int i=0; i<20; i++){
             testaaIDAStarLuolalla("resources/testiluolat/80avoin.txt", 1, 1, 0, 0, 29, 29);
         }
@@ -165,13 +165,13 @@ public class Suorituskykytestaus {
         System.out.println("\nLeveyshaku: sokkelo 70x70, reitti löytyy");
         System.out.println("pituus\tboolean\tnodet\tA*\tBFS");
         for(int i=0; i<20; i++){
-            testaaLeveyshakuLuolalla("resources/testiluolat/70-70.txt", 0, 0, 69, 69, 0, 69);
+            testaaLeveyshakuLuolalla("resources/testiluolat/70-70.txt", 0, 0, 64, 64, 64, 64);
         }
         
         System.out.println("\nLeveyshaku: sokkelo 80x80, reitti löytyy");
         System.out.println("pituus\tboolean\tnodet\tA*\tBFS");
         for(int i=0; i<20; i++){
-            testaaLeveyshakuLuolalla("resources/testiluolat/80-80.txt", 0, 0, 79, 79, 0, 79);
+            testaaLeveyshakuLuolalla("resources/testiluolat/80-80.txt", 0, 0, 79, 79, 79, 79);
         }
         
         System.out.println("\nLeveyshaku: sokkelo 20x20, takaa-ajo");
@@ -223,19 +223,19 @@ public class Suorituskykytestaus {
         }
         
         System.out.println("\nIDA*: sokkelo 50x50, reitti löytyy");
-        System.out.println("pituus\tboolean\tnodet\tA*\tBFS");
+        System.out.println("pituus\tboolean\tnodet\tA*\tIDA*");
         for(int i=0; i<20; i++){
             testaaIDAStarLuolalla("resources/testiluolat/50-50.txt", 0, 0, 49, 49, 0, 49);
         }
         
         System.out.println("\nIDA*: sokkelo 60x60, reitti löytyy");
-        System.out.println("pituus\tboolean\tnodet\tA*\tBFS");
+        System.out.println("pituus\tboolean\tnodet\tA*\tIDA*");
         for(int i=0; i<20; i++){
             testaaIDAStarLuolalla("resources/testiluolat/60-60.txt", 0, 0, 58, 58, 0, 59);
         }
         
 //        System.out.println("\nIDA*: sokkelo 70x70, reitti löytyy");
-//        System.out.println("pituus\tboolean\tnodet\tA*\tBFS");
+//        System.out.println("pituus\tboolean\tnodet\tA*\tIDA*");
 //        for(int i=0; i<20; i++){
 //            testaaIDAStarLuolalla("resources/testiluolat/70-70.txt", 0, 0, 69, 69, 0, 69);
 //        }
@@ -259,19 +259,19 @@ public class Suorituskykytestaus {
         }
         
 //        System.out.println("\nIDA*: sokkelo 50x50, takaa-ajo");
-//        System.out.println("pituus\tboolean\tnodet\tA*\tBFS");
+//        System.out.println("pituus\tboolean\tnodet\tA*\tIDA*");
 //        for(int i=0; i<20; i++){
 //            testaaLeveyshakuLuolalla("resources/testiluolat/50-50.txt", 1, 1, 0, 0, 49, 49);
 //        }
 //        
 //        System.out.println("\nIDA*: sokkelo 60x60, takaa-ajo");
-//        System.out.println("pituus\tboolean\tnodet\tA*\tBFS");
+//        System.out.println("pituus\tboolean\tnodet\tA*\tIDA*");
 //        for(int i=0; i<20; i++){
 //            testaaLeveyshakuLuolalla("resources/testiluolat/60-60.txt", 1, 1, 0, 0, 59, 59);
 //        }
 //        
 //        System.out.println("\nIDA*: sokkelo 70x70, takaa-ajo");
-//        System.out.println("pituus\tboolean\tnodet\tA*\tBFS");
+//        System.out.println("pituus\tboolean\tnodet\tA*\tIDA*");
 //        for(int i=0; i<20; i++){
 //            testaaLeveyshakuLuolalla("resources/testiluolat/70-70.txt", 1, 1, 0, 0, 69, 69);
 //        }
