@@ -74,7 +74,7 @@ AStar-luokasta testataan, että mikäli polku lähtösolmusta maaliin on olemass
 Lisäksi testataan, että kun polkua lähtösolmun ja maalisolmun välillä ei ole, palautetaan null.
 
 ### Leveyshaku
-Leveyshaun toimintaa testataan vastaavasti kuin A*-haun. Niissä tapauksissa, joissa polku on olemassa, tutkitaan, ettei palautettu null, polun pituus on oikea, se alkaa ja päättyy oikeaan nodeen ja polun keskeltä valitaan jokin yksikäsitteinen alkio tutkittavaksi.
+Leveyshaun toimintaa testataan vastaavasti kuin A\*-haun. Niissä tapauksissa, joissa polku on olemassa, tutkitaan, ettei palautettu null, polun pituus on oikea, se alkaa ja päättyy oikeaan nodeen ja polun keskeltä valitaan jokin yksikäsitteinen alkio tutkittavaksi.
 
 Oikean polun löytäminen testataan sekä tapauksessa, jossa jahdattava saadaan kiinni "triviaalisti" että tapauksessa, jossa jahtaajan täytyy jäädä "odottamaan" etteivät jahtaaja ja jahdattava kulkisi ristiin. Lisäksi testataan tapas, jossa jahtaaja ja jahdattava lähtevät vierekkäisistä ruuduista takaa-ajoasemasta sekä tapaus, jossa jahtaaja ei selvästi ehdi saada jahdattavaa kiinni.
 
@@ -126,36 +126,31 @@ Testasin ohjelman suorituskykyä kahdenlaisilla kartoilla: täysin avoimilla sek
     #           #         # #         # # # #     #     #     #       # # #                     
 </pre>
 
+Suorituskykytestaus teoteutettiin omassa suorituskykytestaus-luokassa, jossa on erikseen metodit leveyshaun ja IDA\*-haun testaamiseen. Kumpikin näistä ajaa annetun haun annetussa tiedostossa sijaitsevalla kartalla ja jahtaajan, jahdattavan ja maalin sijainneilla. Kuhunkin ohjelman suoritusvaiheeseen (boolean-taulukon luominen luetun tiedoston perusteella, Node-olioiden luominen, jahdattavan reitin määrittäminen ja lopulta jahtaajan reitin määrittäminen) kuluva aika nanosekunteina tulostetaan erikseen.
+
+Näiden lisäksi loin apumetodit testaaAvoimella ja testaaSokkelolla, jotka ajavat automaattisesti useita testitapauksia j tulostavat asianmukaiset headerit aikoja sisältäville riveille. Kukin yksittäinen testitapaus ajetaan 20 kertaa, jotta tilastollisen vaihtelun aiheuttamaa epätarkkuutta tuloksissa saadaan pienennettyä.
+
 ### Avoin kartta
-Avoimella kartalla testasin sekä BFS- että IDA\*-hakuja tilanteissa, joissa jahtaajan polku jahdattavan luo vaihteli kymmenen askeleen portain välillä [30, 80].
+Avoimella kartalla testasin sekä BFS- että IDA\*-hakuja tilanteissa, joissa jahtaajan polku jahdattavan luo vaihteli kymmenen askeleen portain välillä [30, 80]. Kaikissa näissä testitapauksissa käytettiin samaa 80x80 ruudun karttaa ja etsittävän reitin pituuteen vaikutettiin ainoastaan jahtaajan, jahdattavan ja maalin sijaintia muuttamalla. Täten ideaalitapauksessa kahteen ensimmäiseen suoritusvaiheeseen (boolean-taulukon lukemiseen ja Nodejen luomiseen) pitäisi kulua jokaisessa testitapauksessa yhtä kauan. Mitatut ajat eri suorituskerroilla ovat nähtävissä kuvaajassa alla.
 
 ![Luolan luomisen vaiheisiin kuluneet ajat](kuvat/luontiajat.png)
 
-DISCLAIMER: LUVUT OVAT PUPPUA. PLACEHOLDER JA MUISTUTUS SIITÄ, MITEN TAULUKOITA TEHDÄÄN
-Avoin 80x80 ruudun kartta: ajokertojen 2-20 keskiarvo. Kaikki ajat nanosekunteja.
+Kuvaajasta havaitaan, että erityisesti boolean-taulukon luomiseen kuluvassa ajassa esiintyy välillä hyvin suuriakin poikkeamia (huomaa y-akselin logaritmisuus ja asteikon alkaminen arvosta 500 ns). Erityisesti ajat ensimmäisillä suorituskerroilla ovat pidempiä kuin myöhemmillä ja välillä esiintyy melko suuriakin satunnaisia fluktuaatioita. Näihin todennäköisesti vaikuttavat esimerkiksi tietojen sijainti välimuistissa sekä muut käynnissä olevat prosessit. Yksittäisten piikkien suodattamiseksi pois käytän jatkossa saman testin useiden eri ajokertojen keskilukuna mediaania, joka suodattaa keskiarvoa tehokkaammin pois yksittäiset poikkeavat arvot.
 
-Avoimella 80x80 ruudun karttaa edustavan 
+Avoimella kartalla sekä takaa-ajotilanteessa että reitin löytyessä IDA\* suoriutuu huomattavasti nopeammin kuin leveyshaku, kuten nähdään alla olevista kuvaajista. Kukin kuvaajan piste on kahdenkymmenen suorituskerran kuluneiden aikojen mediaani.
 
-  Selite				| boolean	| nodet	| A*	| haku	
-------------------------|-----------|-------|-------|-------
-Leveyshaku: reitti on	| 1822		| 1142	| 69	| 701	
-Leveyshaku: takaa-ajo	| 1053		| 898	| 262	| 833	
-IDA*: reitti on			| 765		| 751	| 41	| 13	
-IDA*: takaa-ajo			| 776		| 746	| 156	| 9		
+![Luolan luomisen vaiheisiin kuluneet ajat](kuvat/avoin-reitti.png)
+![Luolan luomisen vaiheisiin kuluneet ajat](kuvat/avoin-ajo.png)
 
+Suorituskykyeroa selittävänä tekijänä toimii IDA\*-haun kyky valita tutkittavaksi vain pieni osa tarjolla olevista naapurinodeista leveyshaun levittäytyessä tasaisesti kaikkiin suuntiin, jolloin avoimella kartalla tutkitaan väistämättä suuri määrä nodeja, jotka ovat selkeästi väärässä suunnassa.
 
-Avoin 80x80 ruudun kartta: ensimmäinen ajokerta. Kaikki ajat nanosekunteja.
+### Sokkeloinen kartta
 
-  Selite				| boolean	| nodet	| A*	| haku	
-------------------------|-----------|-------|-------|-------
-Leveyshaku: reitti on	| 26088		| 5849	| 2983	| 3781	
-Leveyshaku: takaa-ajo	| 1275		| 3269	| 316	| 691	
-IDA*: reitti on			| 772		| 777	| 41	| 601	
-IDA*: takaa-ajo			| 737		| 472	| 174	| 9		
+![Luolan luomisen vaiheisiin kuluneet ajat](kuvat/sokkelo-reitti.png)
+![Luolan luomisen vaiheisiin kuluneet ajat](kuvat/sokkelo-ajo.png)
+
 
 ## Testien toistettavuus
 Ohjelman toiminnallisuuden toteamiseen käytetään JUnit-testejä, joten ne voidaan ajaa helposti IDEn kuten Netbeansin testaustoimintoa tai vaihtoehtoisesti komentoriviltä.
 
 Suorituskykytestauksessa käytetyt metodit löytyvät Suorituskykytestaus-luokasta, josta niitä on yksinkertaista kutsua main-metodia muokkaamalla.
-
-## Graafinen muoto önnönnöö
