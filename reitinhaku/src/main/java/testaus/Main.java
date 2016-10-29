@@ -5,13 +5,6 @@
  */
 package testaus;
 
-import fi.antonbury.reitinhaku.haku.AStar;
-import fi.antonbury.reitinhaku.haku.IDAStar;
-import fi.antonbury.reitinhaku.haku.Node;
-import fi.antonbury.reitinhaku.utils.LuolaLukija;
-import fi.antonbury.reitinhaku.utils.NodeGeneraattori;
-import java.io.IOException;
-
 /**
  *
  * @author anni
@@ -19,7 +12,7 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) {
-        Suorituskykytestaus.testaaSokkelolla();
-//        Suorituskykytestaus.testaaAvoimella();
+//        Suorituskykytestaus.testaaSokkelolla();
+        Suorituskykytestaus.testaaAvoimella();
     }
 }
