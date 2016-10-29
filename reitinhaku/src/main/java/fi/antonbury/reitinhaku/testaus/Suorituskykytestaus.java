@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package testaus;
+package fi.antonbury.reitinhaku.testaus;
 
 import fi.antonbury.reitinhaku.haku.AStar;
 import fi.antonbury.reitinhaku.haku.IDAStar;
