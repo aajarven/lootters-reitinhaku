@@ -25,6 +25,74 @@ Luettaessa luolaa tiedostosta ja generoitaessa nodeja luodun totuusarvotaulukon 
 
 
 ## Suorituskyky- ja O-analyysivertailut
+<!--Tutkin ohjelman suorituskykyä kahdentyyppisillä kartoilla: avoimella kartalla, jossa ei ole esteitä, sekä sokkeloisella luolastolla, joka koostuu lähinnä kapeahkoista käytävistä. Kummassakin tapauksessa testasin eri mittaisia reittejä sekä tilanteessa, jossa reitti jahdattavan luo on olemassa että tilanteessa, jossa sellaista ei ole. Kussakin testissä ohjelma tulostaa erikseen neljään suoritusvaiheeseen kuluneet ajat nanosekunneissa: tiedoston lukeminen ja boolean-taulukon luominen, nodejen generointi, jahdattavan reitin etsiminen A\*-haulla ja viimeisenä jahtaajan reitin etsintään kuluva aika.-->
+Toteutettujen hakualgoritmien suorituskykyä voidaan tarkastella ohjelmakoodiin perustuvan O-analyysin avulla.
+
+### A\*-haku
+Käyttämäni koodi A\*-haulle on esitetty alla. Siihen on lisätty myös eri vaiheiden aikavaativuuksia selventäviä kommentteja. 
+<pre>
+public static Node[] hae(Node lahto, Node maali) {
+    lahto.nollaaKustannusNodeenAsti();        
+    Prioriteettijono openSet = new Prioriteettijono(maali);
+    openSet.lisaaNode(lahto);
+
+    // kaikki ennen tätä on vakioaikaista
+    while (!openSet.onTyhja()) {
+        Node kasiteltava = openSet.poimiNode(); // vakioaika
+        if (kasiteltava == maali) {
+            return PolkuGeneraattori.generoiPolku(kasiteltava); //O(polun pituus)
+        }
+        kasitteleNaapurit(openSet, kasiteltava);
+    }
+
+    return null;
+}
+</pre>
+Noden naapureita käsiteltäessä lisätään jokainen naapuri, joka ei jo löydy closedSetistä, openSettiin. Omassa toteutuksessani tämä on toteutettu prioriteettijonona, johon lisääminen on aikavaativuusluokaltaan O(n) missä n on jonossa olevien alkioiden määrä. Täten koska while-silmukka suoritetaan korkeintaan niin monta kertaa, kuin etsittävässä polussa on nodeja, jolloin nodella ollessa keskimäärin b naapuria (tässä sovelluksessa b<=4 kaikilla kartoilla), nähdään A\*-haun olevan aikavaativuudeltaan O((b^d)^2) = O(b^(2d)).
+
+### BFS
+Leveyshaun koodi on nähtävissä alla, kommentit avaavat aikavaativuuksia:
+<pre>
+public static Node[] hae(Node lahto, Node[] maali) {
+    lahto.nollaaKustannusNodeenAsti();
+    
+    Jono jono = new Jono();
+    jono.lisaaAlkio(lahto);
+    Node parasReitilta = null; // aikaisimmin jahdattavan reitillä oleva löydetty node
+    int parasReitiltaPituus = Integer.MAX_VALUE; // monesko tämä node on reitillä
+
+    // kaikki ennen tätä vakioaikaista
+    while (!jono.onTyhja()) {
+        Node tutkittava = jono.poimiNode(); // vakioaika
+        if (onMaali(tutkittava, maali)) {
+            return PolkuGeneraattori.generoiPolku(tutkittava); // O(polun pituus)
+        }
+        int tutkittavaMoneskoReitilta = moneskoReitilla(tutkittava, maali); // O(polun pituus)
+        if (tutkittavaMoneskoReitilta < parasReitiltaPituus) { // koko if vakioaikainen
+            parasReitiltaPituus = tutkittavaMoneskoReitilta;
+            parasReitilta = tutkittava;
+        }
+
+        for (Node naapuri : tutkittava.getNaapurit()) { // koko for O(polun pituus)
+            if (naapuri.getEdeltaja() =\ null) {
+               naapuri.yritaAsettajaaEdeltaja(tutkittava);
+                jono.lisaaAlkio(naapuri);
+            }
+        }
+
+    }
+
+    if (parasReitilta = null) {
+        return null;
+    } else {
+        return PolkuGeneraattori.generoiPolku(parasReitilta);
+    }
+}
+</pre>
+Tästä nähdään helposti, että toteuttamani algoritmi vastaa leveyshaun teoreettista aikavaativuutta O(b^d) missä b on noden keskimääräinen naapurimäärä ja d on etsittävän polun pituus.
+
+###IDA\*
+
 
 ## Työn puutteet ja parannusehdotukset
 
