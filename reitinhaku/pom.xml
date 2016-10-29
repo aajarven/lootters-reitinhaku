@@ -73,15 +73,6 @@
                 </executions>
             </plugin>
         </plugins>
-        
-        <resources>
-            <resource>
-                <directory>resources/testiluolat</directory>
-                <includes>
-                    <include>*.txt</include>
-                </includes>
-            </resource>
-        </resources>
     </build>
     
 </project>
