@@ -145,10 +145,14 @@ Avoimella kartalla sekä takaa-ajotilanteessa että reitin löytyessä IDA\* suo
 Suorituskykyeroa selittävänä tekijänä toimii IDA\*-haun kyky valita tutkittavaksi vain pieni osa tarjolla olevista naapurinodeista leveyshaun levittäytyessä tasaisesti kaikkiin suuntiin, jolloin avoimella kartalla tutkitaan väistämättä suuri määrä nodeja, jotka ovat selkeästi väärässä suunnassa.
 
 ### Sokkeloinen kartta
+Sokkeloisella kartalla ajettiin vastaavat testit kuin avoimella kartalla. Nyt kuitenkin erityisesti IDA\*:n yhden reitin löytämiseen kuluva aika nousi melko nopeasti useiden sekuntien luokkaan, en ajanut IDA\*-hakua takaa-ajoasemassa suuremmilla kuin sivultaan 40 olevalla kartalla hahmojen liikkuessa sokkelon ohjaamana kartan kulmasta vastakkaiseen kulmaan ja reitin löytyessä pisimmillään 66 Noden mittaisella reitillä.
+
+Suoritusajat ovat nähtävissä alla olevissa kuvissa. Nyt leveyssuuntaisen haun kuluttama aika kasvaa maltillisemmin, sillä sokkeloisessa labyrintissa yksittäisellä nodella on keskimäärin avointa karttaa huomattavasti vähemmän naapureita. Tälläisessä tilanteessa IDA\* puolestaan joutuu käymään uudelleen ja uudelleen läpi samoja nodeja, jolloin aikaa kuluu runsaasti.
 
 ![Luolan luomisen vaiheisiin kuluneet ajat](kuvat/sokkelo-reitti.png)
 ![Luolan luomisen vaiheisiin kuluneet ajat](kuvat/sokkelo-ajo.png)
 
+Erityisesti ensimmäisessä kuvaajassa havaitaan, ettei aikavaativuus vaikuta kasvavan monotonisesti reitin pidentyessä. Tämä johtuu todennäköisesti tämän testin ajamisen sijoittumisesta ajanjaksolle, jossa suoritusaikojen hajonta on suurta varsinaisesta ajettavasta koodista riippumatta.
 
 ## Testien toistettavuus
 Ohjelman toiminnallisuuden toteamiseen käytetään JUnit-testejä, joten ne voidaan ajaa helposti IDEn kuten Netbeansin testaustoimintoa tai vaihtoehtoisesti komentoriviltä.
