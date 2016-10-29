@@ -2,6 +2,8 @@
 ## Ohjelman yleisrakenne
 Ohjelman voi katsoa koostuvan kolmesta erillisestä osasta: ensin generoidaan annetun luolatiedoston perusteella Nodet, sitten etsitään jahattavalle reitti annettuun maalinodeen ja lopuksi generoidaan jahtaajam reitti matkalla jahdattavan luo käyttäen joko BFS-hakua tai IDA\*-hakua. Määrittelydokumenttia kirjoitettaessa suunniteltua IDS-hakua ei toteutettu, sillä se tutkii aina vähintään yhtä paljon nodeja kuin IDA\* ja jo IDA\* oli todellista pelikarttaa muistuttavilla vähänkään suuremmilla syötteillä melko hidas.
 
+Koska ohjelmaa ei ole tarkoitus käyttää sellaisenaan mihinkään vaan upottaa se myöhemmin osaksi peliprojektia, toteutin main-metodin osana testauspakettia. Se sopii sinne loogisesti, sillä sitä käytetään ainoastaan suorituskykytestien ajamiseen. Lisäksi se on yksinkertaista korvata yhdessä suorituskykytestauksen kanssa muun pelin koodilla peliprojektin alkaessa.
+
 ### Luolan generointi
 Luolan lukemisesta tiedostosta huolehtii LuolaLukija-luokka. Sen lueLuola-metodi saa parametrina tiedostonimen, josta luetaan ensin luolan loopullinen koko ja tyhjän boolean-taulukon luomisen jälkeen tämä taulukko täytetään arvoilla sen mukaan, mitkä ruuduista ovat hahmojen käveltävissä.
 
@@ -25,7 +27,6 @@ Luettaessa luolaa tiedostosta ja generoitaessa nodeja luodun totuusarvotaulukon 
 
 
 ## Suorituskyky- ja O-analyysivertailut
-<!--Tutkin ohjelman suorituskykyä kahdentyyppisillä kartoilla: avoimella kartalla, jossa ei ole esteitä, sekä sokkeloisella luolastolla, joka koostuu lähinnä kapeahkoista käytävistä. Kummassakin tapauksessa testasin eri mittaisia reittejä sekä tilanteessa, jossa reitti jahdattavan luo on olemassa että tilanteessa, jossa sellaista ei ole. Kussakin testissä ohjelma tulostaa erikseen neljään suoritusvaiheeseen kuluneet ajat nanosekunneissa: tiedoston lukeminen ja boolean-taulukon luominen, nodejen generointi, jahdattavan reitin etsiminen A\*-haulla ja viimeisenä jahtaajan reitin etsintään kuluva aika.-->
 Toteutettujen hakualgoritmien suorituskykyä voidaan tarkastella ohjelmakoodiin perustuvan O-analyysin avulla.
 
 ### A\*-haku
@@ -132,3 +133,5 @@ Projektin oleellisten algoritmien eli liikkuvaan maaliin navigointiin käytettä
 Työssä on joitain varsinaisen tutkittavan ongelman ratkaisun tehokkuuteen vaikuttamattomia puutteita kuten A\*-haun epäoptimaalinen aikavaativuus sekä nodejen luomiseen liittyvän naapurien lisäämisen O(n)-aikavaativuus, missä n on jo olemassaolevien naapurien määrä. Lopullisen sovelluskohteen kannalta erityisesti jälkimmäinen ongelma on kuitenkin merkityksetön, sillä pelin tapauksessa karttanodet luodaan pelin alussa ja luomisprosessi poikkeaa jonkin verran tässä käytetystä esimerkiksi sen osalta, mitä tietoja nodeen liittyy.
 
 Lisäksi mikäli käytettävissä olisi ollut enemmän aikaa, olisin mielelläni tutkinut myös muiden algoritmien soveltuvuutta liikkuvan maalin jahtaamiseen. Esimerkiksi ehdotettuun jump point searchiin olisi ollut kiintoisaa perehtyä.
+
+Mikäli ohjelma olisi tarkoitettu käytettäväksi itsenäisesti, olisi lisäksi tärkeää toteuttaa mahdollisuus antaa käytettävä luola ja muut parametrit joko käyttöliittymän kautta tai esimerkiksi komentoriviargumentteina. Nykytilanteessa, jossa ohjelmalla ei ole käytännön sovelluskohteita tulevan pelin sisäisen toteutuksen ulkopuolella, en kuitenkaan pitänyt tätä tärkeänä.
