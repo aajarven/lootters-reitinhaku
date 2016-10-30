@@ -155,6 +155,4 @@ Suoritusajat ovat nähtävissä alla olevissa kuvissa. Nyt leveyssuuntaisen haun
 Erityisesti ensimmäisessä kuvaajassa havaitaan, ettei aikavaativuus vaikuta kasvavan monotonisesti reitin pidentyessä. Tämä johtuu todennäköisesti tämän testin ajamisen sijoittumisesta ajanjaksolle, jossa suoritusaikojen hajonta on suurta varsinaisesta ajettavasta koodista riippumatta.
 
 ## Testien toistettavuus
-Ohjelman toiminnallisuuden toteamiseen käytetään JUnit-testejä, joten ne voidaan ajaa helposti IDEn kuten Netbeansin testaustoimintoa tai vaihtoehtoisesti komentoriviltä.
-
-Suorituskykytestauksessa käytetyt metodit löytyvät Suorituskykytestaus-luokasta, josta niitä on yksinkertaista kutsua main-metodia muokkaamalla.
+Ohjelman toiminnallisuuden toteamiseen käytetään JUnit-testejä, joten ne voidaan ajaa helposti IDEn kuten Netbeansin testaustoimintoa tai vaihtoehtoisesti komentoriviltä. Suorituskykytestit on mahdollista ajaa ohjelman tekstikäyttöliittymän ohjeita seuraamalla.
