@@ -55,7 +55,7 @@ Tämän luolan suunnittelin sellaiseksi, että siinä on eristyksissä olevia no
 Luodusta luolasta testaan luolan oikea koko, kulmissa olevian nodejen naapurimäärät sekä naapurimäärät yhdeltä kunkin odotetun naapurimäärän nodelta. Lisäksi tarkastan, ettei kulkukelvottomasta ruudusta ole luotu Node-oliota. Naapurien oikeellisuuden testaan testaamalla, että nodeilla, jotka ovat toistensa ainoat naapurit, naapurin naapurin hakeminen palauttaa alkuperäisen noden.
 
 ### JonoAlkio
-JonoAlkiosta testataam seuraajan asettamisen ja hakemisen toiminnan tarkastamalla ensin, että vastaluodun JonoAlkion seuraaja on null, sen jälkeen asettamalla sille seuraajan ja varmistamalla, että getSeuraaja palauttaa äsken asetetun noden. Lisäksi testasin, että getNode-metodi palauttaa saman noden kuin JonoAlkiolle on sitä luotaessa annettu.
+JonoAlkiosta testataan seuraajan asettamisen ja hakemisen toiminta tarkastamalla ensin, että vastaluodun JonoAlkion seuraaja on null, sen jälkeen asettamalla sille seuraajan ja varmistamalla, että getSeuraaja palauttaa äsken asetetun noden. Lisäksi testtaan, että getNode-metodi palauttaa saman noden kuin JonoAlkiolle on sitä luotaessa annettu.
 
 ### Jono
 Jonosta testataan, että alkion lisäämisen jälkeen jono ei enää ole tyhjä ja että jonoon lisätyt alkiot palautetaan samassa järjestyksessä kuin ne on jonoon laitettu. Samoin testataan, että juuri luodun jonon onTyhjä-metodi palauttaa true, yhden alkion lisäämisen jälkeen false ja kun kaikki alkiot on poimittu jälleen true. Lisäksi varmistetaan, että tyhjälle jonolle kutsuttaessa poimiNode-metodi palauttaa null.
@@ -73,8 +73,8 @@ AStar-luokasta testataan, että mikäli polku lähtösolmusta maaliin on olemass
 
 Lisäksi testataan, että kun polkua lähtösolmun ja maalisolmun välillä ei ole, palautetaan null.
 
-### Leveyshaku
-Leveyshaun toimintaa testataan vastaavasti kuin A\*-haun. Niissä tapauksissa, joissa polku on olemassa, tutkitaan, ettei palautettu null, polun pituus on oikea, se alkaa ja päättyy oikeaan nodeen ja polun keskeltä valitaan jokin yksikäsitteinen alkio tutkittavaksi.
+### Leveyshaku ja IDA*
+Leveyshaun ja IDA\*-haun toimintaa testataan vastaavasti kuin A\*-haun. Niissä tapauksissa, joissa polku on olemassa, tutkitaan, ettei palautettu null, polun pituus on oikea, se alkaa ja päättyy oikeaan nodeen ja polun keskeltä valitaan jokin yksikäsitteinen alkio tutkittavaksi.
 
 Oikean polun löytäminen testataan sekä tapauksessa, jossa jahdattava saadaan kiinni "triviaalisti" että tapauksessa, jossa jahtaajan täytyy jäädä "odottamaan" etteivät jahtaaja ja jahdattava kulkisi ristiin. Lisäksi testataan tapas, jossa jahtaaja ja jahdattava lähtevät vierekkäisistä ruuduista takaa-ajoasemasta sekä tapaus, jossa jahtaaja ei selvästi ehdi saada jahdattavaa kiinni.
 
