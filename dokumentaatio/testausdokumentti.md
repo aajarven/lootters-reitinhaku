@@ -1,6 +1,6 @@
 # Testausdokumentti
 ## Ohjelman toiminnan testauksen laajuus ja toteutus
-Ohjelman kaikkien luokkien toiminta mainia lukuunottamatta on testattu pit-mutaatiotestausta käyttäen. Rivikattavuus on hyvin lähellä sataa, ainoastaan vain staattisia metodeja sisältävistä aiheutuu muutamia "testaamattomia" rivejä sillä pit tulkitsee tällöin luokkien määrittelyrivit testaamattomiksi. Mutaatiokattavuus puolestaan on 100%. Myös pit-raportti kokonaisuudessaan on nähtävissä (dokumentaatio/pit).
+Ohjelman kaikkien luokkien toiminta mainia lukuunottamatta on testattu pit-mutaatiotestausta käyttäen. Rivi- ja mutaatiokattavuudet ovat hyvin lähellä sataa. Esimerkiksi staattisia metodeja sisältävistä aiheutuu kuitenkin muutamia "testaamattomia" rivejä sillä pit tulkitsee tällöin luokkien määrittelyrivit testaamattomiksi. Lisäksi esimerkiksi hashCoden toteutukselle ei ole testejä, jotka saisivat kiinni mutaatioita. Pit-raportti on nähtävissä kokonaisuudessaan repositoriossa (dokumentaatio/pit). Suorituskykytesteille ja main-metodille ei ole testejä, joten ne on jätetty pois myös pit-raportista.
 
 ### LuolaLukija
 LuolaLukijan toimivuus testattiin sekä toimivilla että eri tavoin toimimattomilla, joskin pienillä syötteillä. Toimivana luolana käytettiin sisällöltään seuraavanlaista tiedostoa:
