@@ -81,18 +81,34 @@ public class Node {
         }
     }
 
+    /**
+     * Palauttaa noden, josta tähän nodeen on tultu
+     * @return noden edeltäjä
+     */
     public Node getEdeltaja() {
         return edeltaja;
     }
 
+    /**
+     * Palauttaa noden x-koordinaatin
+     * @return noden x-koordinaatti
+     */
     public int getX() {
         return x;
     }
 
+    /**
+     * Palauttaa noden y-koordinaatin
+     * @return noden y-koordinaatti
+     */
     public int getY() {
         return y;
     }
 
+    /**
+     * Palauttaa kustannuksen, joka on vaadittu tähän nodeen pääsemiseksi
+     * @return kustannus tähän nodeen pääsemiseksi
+     */
     public int getKustannusNodeenAsti() {
         return kustannusNodeenAsti;
     }
@@ -119,6 +135,10 @@ public class Node {
         return Math.abs(x - maali.getX()) + Math.abs(y - maali.getY());
     }
 
+    /**
+     * Palauttaa noden naapurit taulukossa
+     * @return noden naapurit
+     */
     public Node[] getNaapurit() {
         return naapurit.getNaapurit();
     }

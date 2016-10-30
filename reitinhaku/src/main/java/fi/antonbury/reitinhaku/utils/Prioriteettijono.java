@@ -114,24 +114,4 @@ public class Prioriteettijono {
     public boolean onTyhja(){
         return ensimmainen == null;
     }
-    
-    // TODO ethän sinä edes käytä tätä mihinkään
-    /**
-     * Palauttaa jonon tämänhetkisen pituuden.
-     * @return jonon pituus
-     */
-//    public int pituus(){
-//        if (ensimmainen == null){
-//            return 0;
-//        }
-//        
-//        int pituus = 1;
-//        PrioriteettijonoAlkio edellinen = ensimmainen;
-//        while (edellinen.getSeuraaja() != null){
-//            edellinen = edellinen.getSeuraaja();
-//            pituus++;
-//        }
-//        
-//        return pituus;
-//    }
 }

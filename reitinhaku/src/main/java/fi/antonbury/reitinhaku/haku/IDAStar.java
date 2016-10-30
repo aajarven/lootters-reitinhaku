@@ -11,6 +11,14 @@ package fi.antonbury.reitinhaku.haku;
  */
 public class IDAStar {
     
+    /**
+     * Etsii reitin annetusta lähtönodesta maalipolulle annetunkokoisella kartalla
+     * @param lahto node, josta lähdetään
+     * @param maali lista nodeja, jotka toimivat maalina siten, että yhden askeleen jälkeen maali on listan toinen node jne
+     * @param kokoX navigoitavan kartan koko x-suunnassa
+     * @param kokoY navigoitavan kartan koko y-suunnassa
+     * @return 
+     */
     public static Node[] hae(Node lahto, Node[] maali, int kokoX, int kokoY){
         
         int[][] minimikustannukset = luoMinimikustannustaulukko(kokoX, kokoY);
