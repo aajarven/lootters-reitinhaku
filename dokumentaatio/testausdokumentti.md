@@ -52,7 +52,7 @@ NodeGeneraattorin testaamiseen käytän seuraavaa luolaa:
 </pre>
 Tämän luolan suunnittelin sellaiseksi, että siinä on eristyksissä olevia nodeja (joita varsinaisen pelin luolastosta ei mitä suurimmalla todennäköisyydellä tosin tule löytymään), sekä nodeja joilla on yksi, kaksi, kolme tai neljä naapuria. 
 
-Luodusta luolasta testaan luolan oikean koon, kulmissa olevian nodejen naapurimäärät sekä naapurimäärät yhdeltä kunkin odotetun naapurimäärän nodelta. Lisäksi tarkastan, ettei kulkukelvottomasta ruudusta ole luotu Node-oliota. Naapurien oikeellisuuden testaan testaamalla, että nodeilla, jotka ovat toistensa ainoat naapurit, naapurin naapurin hakeminen palauttaa alkuperäisen noden.
+Luodusta luolasta testaan luolan oikea koko, kulmissa olevian nodejen naapurimäärät sekä naapurimäärät yhdeltä kunkin odotetun naapurimäärän nodelta. Lisäksi tarkastan, ettei kulkukelvottomasta ruudusta ole luotu Node-oliota. Naapurien oikeellisuuden testaan testaamalla, että nodeilla, jotka ovat toistensa ainoat naapurit, naapurin naapurin hakeminen palauttaa alkuperäisen noden.
 
 ### JonoAlkio
 JonoAlkiosta testataam seuraajan asettamisen ja hakemisen toiminnan tarkastamalla ensin, että vastaluodun JonoAlkion seuraaja on null, sen jälkeen asettamalla sille seuraajan ja varmistamalla, että getSeuraaja palauttaa äsken asetetun noden. Lisäksi testasin, että getNode-metodi palauttaa saman noden kuin JonoAlkiolle on sitä luotaessa annettu.
