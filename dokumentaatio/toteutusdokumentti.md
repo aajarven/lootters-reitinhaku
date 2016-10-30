@@ -2,7 +2,7 @@
 ## Ohjelman yleisrakenne
 Ohjelman voi katsoa koostuvan kolmesta erillisestä osasta: ensin generoidaan annetun luolatiedoston perusteella Nodet, sitten etsitään jahattavalle reitti annettuun maalinodeen ja lopuksi generoidaan jahtaajam reitti matkalla jahdattavan luo käyttäen joko BFS-hakua tai IDA\*-hakua. Määrittelydokumenttia kirjoitettaessa suunniteltua IDS-hakua ei toteutettu, sillä se tutkii aina vähintään yhtä paljon nodeja kuin IDA\* ja jo IDA\* oli todellista pelikarttaa muistuttavilla vähänkään suuremmilla syötteillä melko hidas.
 
-Koska ohjelmaa ei ole tarkoitus käyttää sellaisenaan mihinkään vaan upottaa se myöhemmin osaksi peliprojektia, toteutin main-metodin osana testauspakettia. Se sopii sinne loogisesti, sillä sitä käytetään ainoastaan suorituskykytestien ajamiseen. Lisäksi se on yksinkertaista korvata yhdessä suorituskykytestauksen kanssa muun pelin koodilla peliprojektin alkaessa.
+Koska ohjelmaa ei ole tarkoitus käyttää sellaisenaan mihinkään vaan upottaa se myöhemmin osaksi peliprojektia, toteutin main-metodin osana testauspakettia. Se sopii sinne loogisesti, sillä sitä käytetään ainoastaan suorituskykytestien ajamiseen. Lisäksi se on yksinkertaista korvata yhdessä suorituskykytestauksen kanssa muun pelin koodilla peliprojektin alkaessa. Kun ohjelma suoritetaan, se kysyy käyttäjältä polun käytettävään luolatiedostoon, hahmojen ja maalin sijainnit haun alussa sekä käytetyn hakutyypin (leveyssuuntainen tai IDA\*). Tämän jälkeen ohjelma tulostaa jahtaajan koordinaatit sen matkalla jahdattavan luo.
 
 ### Luolan generointi
 Luolan lukemisesta tiedostosta huolehtii LuolaLukija-luokka. Sen lueLuola-metodi saa parametrina tiedostonimen, josta luetaan ensin luolan loopullinen koko ja tyhjän boolean-taulukon luomisen jälkeen tämä taulukko täytetään arvoilla sen mukaan, mitkä ruuduista ovat hahmojen käveltävissä.
@@ -134,4 +134,4 @@ Työssä on joitain varsinaisen tutkittavan ongelman ratkaisun tehokkuuteen vaik
 
 Lisäksi mikäli käytettävissä olisi ollut enemmän aikaa, olisin mielelläni tutkinut myös muiden algoritmien soveltuvuutta liikkuvan maalin jahtaamiseen. Esimerkiksi ehdotettuun jump point searchiin olisi ollut kiintoisaa perehtyä.
 
-Mikäli ohjelma olisi tarkoitettu käytettäväksi itsenäisesti, olisi lisäksi tärkeää toteuttaa mahdollisuus antaa käytettävä luola ja muut parametrit joko käyttöliittymän kautta tai esimerkiksi komentoriviargumentteina. Nykytilanteessa, jossa ohjelmalla ei ole käytännön sovelluskohteita tulevan pelin sisäisen toteutuksen ulkopuolella, en kuitenkaan pitänyt tätä tärkeänä.
+Mikäli ohjelma olisi tarkoitettu käytettäväksi itsenäisesti, olisi käyttöliittymän paranteleminen kannattavaa. Nyt esimerkiksi käyttäjälle ei anneta mahdollisuutta antaa uutta syötettä, mikäli edellinen ei kelpaa, vaan ohjelma kaatuu. Tämän korjaaminen olisi käyttäjämukavuuden kannalta tärkeää.
