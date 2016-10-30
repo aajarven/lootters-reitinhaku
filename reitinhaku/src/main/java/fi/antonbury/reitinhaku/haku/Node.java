@@ -147,14 +147,4 @@ public class Node {
         hash = 83 * hash + this.y;
         return hash;
     }
-    
-    /**
-     * Poistaa nodella mahdollisesti olevan edeltäjän ja asettaa nodeen asti 
-     * pääsemiseksi vaadittavan kustannuksen maksimiarvoon.
-     */
-    public void nollaaEdeltaja(){
-        this.edeltaja = null;
-        this.kustannusNodeenAsti = Integer.MAX_VALUE;
-    }
-
 }
