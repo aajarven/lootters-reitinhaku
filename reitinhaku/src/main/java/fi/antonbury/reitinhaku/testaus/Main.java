@@ -14,8 +14,6 @@ import fi.antonbury.reitinhaku.utils.NodeGeneraattori;
 import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -24,10 +22,27 @@ import java.util.logging.Logger;
 public class Main {
 
     public static void main(String[] args) {
-        //Suorituskykytestaus.testaaAvoimella();
-        //Suorituskykytestaus.testaaSokkelolla();
-
         Scanner lukija = new Scanner(System.in);
+
+        System.out.println("Mitä suoritetaan?\n"
+                + "1 - suorituskykytestit avoimella kartalla\n"
+                + "2 - suorituskykytestit sokkelolla\n"
+                + "3 - reitinhaku");
+        int suoritus = lukija.nextInt();
+        
+        switch (suoritus) {
+            case 1:
+                Suorituskykytestaus.testaaAvoimella();
+                System.exit(0);
+            case 2:
+                Suorituskykytestaus.testaaSokkelolla();
+                System.exit(0);
+            case 3:
+                break;
+            default:
+                System.out.println("Syötteen tulee olla kokonaisluku väliltä 1-3");
+                System.exit(0);
+        }
 
         System.out.println("Anna polku tiedostoon, josta luola luetaan:");
         String tiedostonimi = lukija.nextLine();
@@ -40,13 +55,12 @@ public class Main {
             System.exit(0);
         }
 
-
-            int jahdattavaX = 0;
-            int jahdattavaY = 0;
-            int jahtaajaX = 0;
-            int jahtaajaY = 0;
-            int maaliX = 0;
-            int maaliY = 0;
+        int jahdattavaX = 0;
+        int jahdattavaY = 0;
+        int jahtaajaX = 0;
+        int jahtaajaY = 0;
+        int maaliX = 0;
+        int maaliY = 0;
         try {
             System.out.println("Anna jahdattavan x-koordinaatti alussa:");
             jahdattavaX = lukija.nextInt();
@@ -60,7 +74,7 @@ public class Main {
             maaliX = lukija.nextInt();
             System.out.println("Anna maalin y-koordinaatti alussa:");
             maaliY = lukija.nextInt();
-        } catch (InputMismatchException e){
+        } catch (InputMismatchException e) {
             System.out.println("Kelpaamaton syöte, koordinaattien tulee olla kokonaislukuja.");
             System.exit(0);
         }
